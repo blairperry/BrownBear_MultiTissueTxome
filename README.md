@@ -43,10 +43,15 @@ The following software was used for data processing and analysis:
 
 ## Contents
 1. Orthogroup identification
+2. Gene-level expression quantification
+3. Transcript-level expression quantification
+4. Incorporation of existing human gene expression data from GTEX
+5. Orthogroup-level normalization of gene expression data
+
 
 ---
 ### 1. Orthogroup identification
-These analyses were run on WSU's HPC ([Kamiak](https://hpc.wsu.edu/)). For generalizability, simplified commands are presented here rather than the specific SLURM scripts used to run these commands on Kamiak.
+Note: These analyses were run on WSU's HPC ([Kamiak](https://hpc.wsu.edu/)). For generalizability, simplified commands are presented here rather than the specific SLURM scripts used to run these commands on Kamiak.
 - Assemblies used:
 	- Brown bear: [NCBI Assembly ASM358476v1](https://www.ncbi.nlm.nih.gov/assembly/GCF_003584765.1/)
 	- Human: NCBI Assembly [GRCh38.p10](https://www.ncbi.nlm.nih.gov/assembly/GCF_000001405.36/)
@@ -78,7 +83,7 @@ python2 ./utility_scripts/annotateGFF.py ./input/longest_cds/ursArc.longCDS.gff 
 
 ---
 ### 2. Gene-level expression quantification
-These analyses were run on WSU's HPC ([Kamiak](https://hpc.wsu.edu/)). For generalizability, simplified commands are presented here rather than the specific SLURM scripts used to run these commands on Kamiak.
+Note: These analyses were run on WSU's HPC ([Kamiak](https://hpc.wsu.edu/)). For generalizability, simplified commands are presented here rather than the specific SLURM scripts used to run these commands on Kamiak.
 
 #### Quality trimming of raw reads using Trim Galore
 ```bash
@@ -105,3 +110,65 @@ featureCounts -p -F 'SAF' -T 8 -t exon -g gene_id -a ursArc.longCDS.orthogroups.
 
 ```
 
+---
+### 3. Transcript-level expression quantification
+Note: These analyses were run on WSU's HPC ([Kamiak](https://hpc.wsu.edu/)). For generalizability, simplified commands are presented here rather than the specific SLURM scripts used to run these commands on Kamiak.
+
+```bash
+# Index transcriptome with Kallisto
+kallisto index -i transcripts.idx ./new_merge.fa
+
+# Quantify transcript-level counts with Kalliso
+kallisto quant -i transcripts.idx --rf-stranded -o kallisto_quants_Feb2022/[file_name] -b 100 -t 5 [read1] [read2]
+```
+
+---
+### 4. Incorporation of existing human gene expression data from GTEX
+Downloading raw gene-level expression from GTEX v8.
+```bash
+# Download count table
+wget https://storage.googleapis.com/gtex_analysis_v8/rna_seq_data/GTEx_Analysis_2017-06-05_v8_RNASeQCv1.1.9_gene_reads.gct.gz
+
+# Download sample info 
+wget https://storage.googleapis.com/gtex_analysis_v8/annotations/GTEx_Analysis_v8_Annotations_SampleAttributesDS.txt 
+wget https://storage.googleapis.com/gtex_analysis_v8/annotations/GTEx_Analysis_v8_Annotations_SampleAttributesDD.xlsx
+```
+
+GTEX data was then filtered to relevant tissues, and 20 samples per tissue were randomly selected (to reduce computational demands in downstream analyses). 
+	- Subsampling of human gene expression data was conducted using this Rscript: [gtex_sampleParsing_12.01.21.R] (**ADD LINK**)
+	
+---
+### 5. Orthogroup-level normalization of gene expression data
+In order to compare bear and human gene expression, we normalized expression data at the level of orthogroup rather than at the level of genes. In theory, this will account for the fact that 1) different species may have different numbers of orthologous genes (i.e., 1 ortholog in humans but 2 in bear) and 2) that gene lengths of orthologous genes may differ between species. Please see the manuscript text for additional details on the motivation and limitations of this approach. 
+
+This process involves the following steps:
+1. Remove genes with no expression (i.e., raw count == 0) in all human and bear samples
+2. Separately for each species, sum raw gene-level counts for genes belonging to the same orthogroup. This produces a set of raw orthogroup-level counts for each species. 
+3. Separately for each species, sum the length of all exons for all genes belonging to the same orthogroup. This produces a set of orthogroup "lengths" for each species.
+4. Separately for each species, normalize raw orthogrou-level counts to produce transcripts per million (TPM) counts.
+5. Merge TPM count tables for both species into a single table.
+6. Using merged table with TPM counts for both species, normalize again using TMM method in edgeR. 
+
+Commands used for the above steps and downstream evaluation and analysis can be found in the following script.
+- Link to Rscript: **ADD SCRIPT/LINK**
+
+---
+### 6. Tissue-specific expression analysis
+
+The following script was used to quantify and plot genes and transcripts with tissue-specific expression.
+- Link to Rscript: TissueSpecificTranscripts_01.10.22.R
+
+---
+### 7. Analysis of differential transcript usage
+
+The following scripts were used to quantify and plot differential transcript usage (DTU) between tissues.
+- DTUrtle_FilePrep_01.04.21.R - prepare files and data for pairwise DTU analyses
+- AllTissues_dTurtle_02.04.21.R - run all pairwise DTU analyses (this was run on Kamiak)
+- DTurtleResultParser.py - used to parwse result files from above script into simpler format
+- dturtle_MultipleTissueResults_01.06.21.R - parsing and plotting DTU analysis results
+
+---
+### 8. Analyses of candidate genes
+
+The following script was used to analyze and plot expression of candidate genes across bear tissues.
+- Link to Rscript: Metabolism_CandGenes_04.25.22.R
