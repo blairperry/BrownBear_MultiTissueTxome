@@ -1,0 +1,504 @@
+library(ggpmisc)
+library(tidyverse)
+library(pheatmap)
+library(viridis)
+library(colorspace)
+library(patchwork)
+
+
+
+# Read in orthogroup-level counts -----------------------------------------
+
+combined.tmm.counts <- read_tsv('analyses/rnaseq_normalization/combined_oglevel_tmmCounts.txt')
+
+# Reading bear sample info back in in case starting from here instead of full script
+sample_info_necrop <- readxl::read_xlsx('data/misc_fromMichael/Necropsy_mapping_stats.xlsx') %>% 
+  janitor::clean_names() %>% 
+  select(sample_id,tissue)
+
+sample_info_prevRNA <- readxl::read_xlsx('data/prevRNAseq_info/prevRNA_SampleInfo.xlsx') %>% 
+  janitor::clean_names() %>% 
+  mutate(tissue = paste(tissue,phys_state,sep='_')) %>% 
+  mutate(sample_id = str_to_upper(str_split_fixed(sample,'[_]',2)[,1])) %>% 
+  select(sample_id, tissue)
+
+all.sample_info <- sample_info_necrop %>% 
+  bind_rows(sample_info_prevRNA)
+
+
+combined.tmm.forPlot <- combined.tmm.counts %>% 
+  pivot_longer(-1,names_to = 'sample',values_to = 'tmm_count') %>% 
+  mutate(species = ifelse(str_detect(sample,'GTEX'),'human','bear')) %>% 
+  mutate(sample = str_replace_all(sample,'_hy','hy')) %>% 
+  mutate(sample = str_replace_all(sample,'_hi','hi')) %>% 
+  mutate(sample = str_replace_all(sample,'_fa','fa')) %>% 
+  mutate(sample_id = str_split_fixed(sample,'[_]',2)[,1] %>% str_to_upper()) %>% 
+  left_join(all.sample_info,by='sample_id') %>% 
+  mutate(sample_id = ifelse(species=='human',sample,sample_id)) %>% 
+  mutate(tissue = ifelse(species=='human',str_split_fixed(sample,'[_]',2)[,1],tissue)) 
+
+
+# Calculate within-tissue z-scores ----------------------------------------
+
+combined.tmm.mat.df.zscores <- combined.tmm.forPlot %>% 
+  filter(tmm_count > 0) %>% 
+  mutate(logTmm = log10(tmm_count+1)) %>% 
+  group_by(sample) %>% 
+  mutate(zscore = (logTmm - mean(logTmm)) / sd(logTmm))
+
+
+# Read in and subset Jansen 2019 supp table to relevant genes -------------
+
+metabGenes <- readxl::read_xlsx('analyses/candidate_genes/CommBio_MetabolismGenes_Fig4and5/Fig4and5GeneCuration_04.25.22.xlsx',col_names = T,na = 'NA') %>% 
+  janitor::clean_names()
+
+head(metabGenes)
+
+# Read in and join StringDB mapping and KEGG characterization 
+
+string.mapping <- read_tsv('analyses/candidate_genes/CommBio_MetabolismGenes_Fig4and5/string_mapping.tsv') %>% 
+  select(queryItem, preferredName)
+
+string.kegg <- readxl::read_xlsx('analyses/candidate_genes/CommBio_MetabolismGenes_Fig4and5/stringdb.enrichment.KEGG.xlsx') %>% 
+  janitor::clean_names() %>% 
+  filter(focal_pathway=='yes') %>% 
+  separate_rows(matching_proteins_in_your_network_labels,sep = ',') %>% 
+  left_join(string.mapping,by=c('matching_proteins_in_your_network_labels'='preferredName')) %>% 
+  select(gene_id = queryItem, string_id = matching_proteins_in_your_network_labels, pathway=term_description)
+
+metabGenes.wPathways <- metabGenes %>% 
+  left_join(string.kegg,by=c('alternate_symbol'='gene_id')) %>% 
+  mutate(pathway = ifelse(is.na(pathway),'Other',pathway))
+
+
+# Read in OG information --------------------------------------------------
+
+og.info <- read_tsv('analyses/orthoFinder/id_convserion/HumanBearOrthologs_wIdConvert_10.20.21.tsv') %>% 
+  mutate(humanGeneID = str_split_fixed(humanGeneID,'[.]',2)[,1])
+
+metab.og <- metabGenes.wPathways %>% 
+  left_join(og.info,by=c('bear_gene_id'='bearGeneID')) %>% 
+  filter(!is.na(orthogroup1))
+
+
+# Candidate gene within sample z-scores
+
+cand.zscores <- combined.tmm.mat.df.zscores %>% 
+  filter(og_id %in% metab.og$orthogroup1) %>% 
+  left_join(metab.og,by=c('og_id'='orthogroup1')) %>% 
+  mutate(sample = str_replace_all(sample,'_hy','hy')) %>% 
+  mutate(sample = str_replace_all(sample,'_hi','hi')) %>% 
+  mutate(sample = str_to_upper(str_split_fixed(sample,'[_]',2)[,1])) %>% 
+  left_join(all.sample_info,by=c('sample'='sample_id'))
+
+cand.zscores.heatdata <- cand.zscores %>% 
+  mutate(sample = paste(species, sample_id, tissue.x, sep=' ')) %>% 
+  select(og_id,sample,zscore) %>% 
+  unique() %>% 
+  pivot_wider(names_from = sample,values_from = zscore,values_fill = 0) %>% 
+  as.data.frame() %>% 
+  column_to_rownames('og_id')
+
+cand.zscores.annotdata <- combined.tmm.mat.df.zscores %>%
+  ungroup() %>% 
+  filter(og_id %in% metab.og$orthogroup1) %>% 
+  left_join(metab.og,by=c('og_id'='orthogroup1')) %>% 
+  filter(pathway != 'Other') %>% 
+  select(og_id,pathway) %>% 
+  unique() %>% 
+  mutate(present = 1) %>% 
+  pivot_wider(names_from = 'pathway',values_from = present,values_fill = 0) %>% 
+  as.data.frame() %>% 
+  column_to_rownames('og_id')
+
+cand.zscores.annotdata.cols <- cand.zscores.heatdata %>% 
+  rownames_to_column('og_id') %>% 
+  pivot_longer(-1,names_to = 'sample',values_to = 'score') %>% 
+  select(sample) %>% 
+  mutate(species = str_split_fixed(sample,'[ ]',2)[,1]) %>% 
+  unique() %>% 
+  column_to_rownames('sample')
+  
+
+paletteLength <- 50
+lim <-  max(abs(min(cand.zscores.heatdata,na.rm = T)),abs(max(cand.zscores.heatdata,na.rm = T))) 
+myBreaks <- c(seq(-(lim), 0, length.out=ceiling(paletteLength/2) + 1), 
+                       seq(lim/paletteLength, lim, length.out=floor(paletteLength/2)))
+
+pheatmap(cand.zscores.heatdata,
+         scale = 'none',
+         color=diverge_hcl(50,palette = 'Blue-Red 3'),
+         breaks=myBreaks,
+         cutree_cols = 5,
+         cutree_rows = 6,
+         border_color = NA,
+         fontsize_col = 6,
+         annotation_row = cand.zscores.annotdata,
+         annotation_col = cand.zscores.annotdata.cols)
+
+
+cand.zscores.heatdata.liverOnly <- cand.zscores.heatdata %>% 
+  select(contains('iver'))
+
+cand.zscores.annotdata.cols.liverOnly <- cand.zscores.annotdata.cols %>% 
+  rownames_to_column('sample') %>% 
+  filter(str_detect(sample,'iver')) %>% 
+  column_to_rownames('sample')
+
+pheatmap(cand.zscores.heatdata.liverOnly,
+         scale = 'none',
+         color=diverge_hcl(50,palette = 'Blue-Red 3'),
+         breaks=myBreaks,
+         cutree_cols = 2,
+         cutree_rows = 6,
+         border_color = NA,
+         fontsize_col = 6,
+         annotation_row = cand.zscores.annotdata,
+         annotation_col = cand.zscores.annotdata.cols.liverOnly)
+
+## TMM data
+
+cand.tmm.heatdata <- cand.zscores %>%
+  mutate(sample = paste(species, sample_id, tissue.x, sep=' ')) %>% 
+  select(og_id,sample,tmm_count) %>% 
+  unique() %>% 
+  pivot_wider(names_from = sample,values_from = tmm_count,values_fill = 0) %>%
+  as.data.frame() %>%
+  column_to_rownames('og_id')
+
+
+pheatmap(log10(cand.tmm.heatdata+1),
+         scale = 'none',
+         color=viridis(50),
+         # breaks=myBreaks,
+         cutree_cols = 5,
+         cutree_rows = 6,
+         border_color = NA,
+         fontsize_col = 6,
+         annotation_row = cand.zscores.annotdata,
+         annotation_col = cand.zscores.annotdata.cols)
+
+
+# subsample to smaller number of human samples
+
+subsampleHuman <- cand.zscores %>%
+  filter(species=='human') %>% 
+  ungroup() %>% 
+  select(tissue.x,sample_id) %>% 
+  unique() %>% 
+  group_by(tissue.x) %>% 
+  sample_n(4)
+
+cand.tmm.heatdata.subsampleHuman <- cand.zscores %>%
+  mutate(sample = paste(species, sample_id, tissue.x, sep=' ')) %>% 
+  filter(species == 'bear' | sample_id %in% subsampleHuman$sample_id) %>% 
+  filter(str_detect(sample,'yperph',negate = T)) %>% 
+  select(og_id,sample,tmm_count) %>% 
+  unique() %>% 
+  pivot_wider(names_from = sample,values_from = tmm_count,values_fill = 0) %>%
+  as.data.frame() %>%
+  column_to_rownames('og_id')
+
+cand.zscore.heatdata.subsampleHuman <- cand.zscores %>%
+  mutate(sample = paste(species, sample_id, tissue.x, sep=' ')) %>% 
+  filter(species == 'bear' | sample_id %in% subsampleHuman$sample_id) %>% 
+  filter(str_detect(sample,'yperph',negate = T)) %>% 
+  select(og_id,sample,zscore) %>% 
+  unique() %>% 
+  pivot_wider(names_from = sample,values_from = zscore,values_fill = 0) %>%
+  as.data.frame() %>%
+  column_to_rownames('og_id')
+
+cand.zscores.annotdata.cols.subsampleHuman <- cand.tmm.heatdata.subsampleHuman %>% 
+  rownames_to_column('og_id') %>% 
+  pivot_longer(-1,names_to = 'sample',values_to = 'score') %>% 
+  select(sample) %>% 
+  mutate(species = str_split_fixed(sample,'[ ]',2)[,1]) %>% 
+  unique() %>% 
+  column_to_rownames('sample')
+  
+
+pheatmap(log10(cand.tmm.heatdata.subsampleHuman+1),
+         scale = 'none',
+         color=viridis(50),
+         # breaks=myBreaks,
+         cutree_cols = 6,
+         cutree_rows = 6,
+         border_color = NA,
+         fontsize_col = 9,
+         annotation_row = cand.zscores.annotdata,
+         annotation_col = cand.zscores.annotdata.cols.subsampleHuman)
+
+pheatmap(cand.zscore.heatdata.subsampleHuman,
+         scale = 'none',
+         color=diverge_hcl(50,palette = 'Blue-Red 3'),
+         breaks=myBreaks,
+         # clustering_method = 'average',
+         clustering_distance_cols = 'correlation',
+         cutree_cols = 10,
+         cutree_rows = 6,
+         border_color = NA,
+         fontsize_col = 9,
+         annotation_row = cand.zscores.annotdata,
+         annotation_col = cand.zscores.annotdata.cols.subsampleHuman)
+
+
+
+## subsampled to 2 samples per species and top N genes
+
+
+cand.tmm.heatdata.subsampleHuman <- cand.zscores %>%
+  mutate(sample = paste(species, sample_id, tissue.x, sep=' ')) %>% 
+  filter(species == 'bear' | sample_id %in% subsampleHuman$sample_id) %>% 
+  filter(str_detect(sample,'yperph',negate = T)) %>% 
+  select(og_id,sample,tmm_count) %>% 
+  unique() %>% 
+  pivot_wider(names_from = sample,values_from = tmm_count,values_fill = 0) %>%
+  as.data.frame() %>%
+  column_to_rownames('og_id')
+
+topN.list <- combined.tmm.mat.df.zscores %>% 
+  group_by(og_id) %>% 
+  summarise(meanExp = mean(tmm_count)) %>% 
+  top_n(n = 1000,wt=meanExp)
+
+randN.list <- combined.tmm.mat.df.zscores %>% 
+  ungroup() %>% 
+  select(og_id) %>% 
+  unique() %>% 
+  sample_n(size = 1000)
+
+topN.tmm.heatdata <- combined.tmm.mat.df.zscores %>% 
+  filter(og_id %in% topN.list$og_id) %>% 
+  mutate(sample = str_replace_all(sample,'_hy','hy')) %>% 
+  mutate(sample = str_replace_all(sample,'_hi','hi')) %>% 
+  mutate(sample = str_to_upper(str_split_fixed(sample,'[_]',2)[,1])) %>% 
+  left_join(all.sample_info,by=c('sample'='sample_id')) %>%
+  mutate(sample = paste(species, sample_id, tissue.x, sep=' ')) %>% 
+  filter(species == 'bear' | sample_id %in% subsampleHuman$sample_id) %>% 
+  filter(str_detect(sample,'yperph',negate = T)) %>% 
+  select(og_id,sample,tmm_count) %>% 
+  unique() %>% 
+  pivot_wider(names_from = sample,values_from = tmm_count,values_fill = 0) %>%
+  as.data.frame() %>%
+  column_to_rownames('og_id')
+
+dim(topN.tmm.heatdata)
+
+
+pheatmap(log10(topN.tmm.heatdata+1),
+         scale = 'none',
+         color=viridis(50),
+         # breaks=myBreaks,
+         cutree_cols = 6,
+         cutree_rows = 6,
+         border_color = NA,
+         fontsize_col = 6,
+         # annotation_row = cand.zscores.annotdata,
+         annotation_col = cand.zscores.annotdata.cols.subsampleHuman)
+
+randN.tmm.heatdata <- combined.tmm.mat.df.zscores %>% 
+  filter(og_id %in% randN.list$og_id) %>% 
+  mutate(sample = str_replace_all(sample,'_hy','hy')) %>% 
+  mutate(sample = str_replace_all(sample,'_hi','hi')) %>% 
+  mutate(sample = str_to_upper(str_split_fixed(sample,'[_]',2)[,1])) %>% 
+  left_join(all.sample_info,by=c('sample'='sample_id')) %>%
+  mutate(sample = paste(species, sample_id, tissue.x, sep=' ')) %>% 
+  filter(species == 'bear' | sample_id %in% subsampleHuman$sample_id) %>% 
+  filter(str_detect(sample,'yperph',negate = T)) %>% 
+  select(og_id,sample,tmm_count) %>% 
+  unique() %>% 
+  pivot_wider(names_from = sample,values_from = tmm_count,values_fill = 0) %>%
+  as.data.frame() %>%
+  column_to_rownames('og_id')
+
+pheatmap(log10(randN.tmm.heatdata+1),
+         scale = 'none',
+         color=viridis(50),
+         # breaks=myBreaks,
+         cutree_cols = 6,
+         cutree_rows = 6,
+         border_color = NA,
+         fontsize_col = 6,
+         # annotation_row = cand.zscores.annotdata,
+         annotation_col = cand.zscores.annotdata.cols.subsampleHuman)
+
+# Liver only
+
+cand.tmm.heatdata.liverOnly <- cand.tmm.heatdata %>% 
+  select(contains('iver'))
+
+cand.tmm.annotdata.cols.liverOnly <- cand.zscores.annotdata.cols %>% 
+  rownames_to_column('sample') %>% 
+  filter(str_detect(sample,'iver')) %>% 
+  column_to_rownames('sample')
+
+pheatmap(log10(cand.tmm.heatdata.liverOnly+1),
+         scale = 'none',
+         color=viridis(50),
+         # breaks=myBreaks,
+         cutree_cols = 2,
+         cutree_rows = 7,
+         border_color = NA,
+         fontsize_col = 6,
+         annotation_row = cand.zscores.annotdata,
+         annotation_col = cand.zscores.annotdata.cols.liverOnly)
+
+
+cand.tmm.heatdata.threeTissue <- cand.tmm.heatdata %>% 
+  select(contains('iver'),contains('dipose'),contains('uscle'))
+
+cand.tmm.annotdata.cols.threeTissue <- cand.zscores.annotdata.cols %>% 
+  rownames_to_column('sample') %>% 
+  filter(str_detect(sample,'iver|dipose|uscle')) %>% 
+  mutate(tissue = case_when(
+    str_detect(sample,'iver') ~ 'Liver',
+    str_detect(sample,'dipose') ~ 'Adipose',
+    str_detect(sample,'uscle') ~ 'Muscle'
+  )) %>% 
+  column_to_rownames('sample')
+
+pheatmap(log10(cand.tmm.heatdata.threeTissue+1),
+         scale = 'none',
+         color=viridis(50),
+         # breaks=myBreaks,
+         cutree_cols = 6,
+         # cutree_rows = 7,
+         border_color = NA,
+         fontsize_col = 8,
+         annotation_row = cand.zscores.annotdata,
+         annotation_col = cand.tmm.annotdata.cols.threeTissue)
+
+
+### Trying other comparisons
+
+combined.tmm.mat.df.mean <- combined.tmm.mat.df.zscores %>% 
+  filter(og_id %in% metab.og$orthogroup1) %>% 
+  ungroup() %>% 
+  select(species,tissue,og_id,tmm_count) %>% 
+  unique() %>% 
+  filter(str_detect(tissue,'iver|dipose|uscle')) %>% 
+  mutate(tissue_simple = case_when(
+    str_detect(tissue,'iver') ~ 'Liver',
+    str_detect(tissue,'dipose') ~ 'Adipose',
+    str_detect(tissue,'uscle') ~ 'Muscle'
+  )) %>% 
+  filter(str_detect(tissue,'Active|Hyper',negate = T)) %>% 
+  group_by(species,tissue_simple,og_id) %>% 
+  summarise(mean_tmm = mean(tmm_count)) %>% 
+  left_join(metab.og,by=c('og_id'='orthogroup1')) %>% 
+  select(species,og_id,gene_symbol,mean_tmm,tissue_simple) %>% 
+  unique() %>% 
+  group_by(og_id) %>% 
+  mutate(all_symbols = paste(unique(gene_symbol),collapse=', ')) %>% 
+  mutate(og_detail = paste(og_id,' (', all_symbols,')',sep='')) %>% 
+  ungroup() %>% 
+  select(og_detail,tissue_simple,species,mean_tmm) %>% 
+  unique() %>% 
+  pivot_wider(names_from = species,values_from = mean_tmm) %>% 
+  mutate(ratio = log2(bear / human),
+         diff = ifelse(ratio > 1, 'log2Ratio > 1 (Higher in bear)',ifelse(ratio < -1,'log2Ratio < -1 (Higher in human)','-1 < log2Ratio < 1'))) %>% 
+  arrange(ratio) %>% 
+  mutate(og_detail = factor(og_detail,levels=unique(.$og_detail)))
+
+p1 <- ggplot(combined.tmm.mat.df.mean,aes(x=ratio,y=og_detail,fill=diff)) + 
+  geom_bar(stat='identity') +
+  facet_wrap(~tissue_simple,ncol=3) +
+  geom_vline(xintercept = 0,lwd=0.5) +
+  scale_x_continuous(breaks = c(-6,-4,-2,0,2,4,6,8)) +
+  scale_fill_manual(values=c('log2Ratio > 1 (Higher in bear)' = 'firebrick3','log2Ratio < -1 (Higher in human)'='darkblue','-1 < log2Ratio < 1'='grey')) +
+  labs(x='Log2(Avg Bear TMM Count / Avg Human TMM Count)',y='Orthogroup') +
+  theme_linedraw()
+
+p2 <- ggplot(combined.tmm.mat.df.mean,aes(x=ratio)) +
+  geom_density(lwd=1,adjust=0.75) +
+  geom_vline(xintercept = 0,lwd=0.5) +
+  facet_wrap(~tissue_simple) + 
+  scale_x_continuous(breaks = c(-6,-4,-2,0,2,4,6,8)) +
+  theme_linedraw() + theme(panel.grid=element_blank())
+
+p2 / p1 + plot_layout(heights = c(1,10))
+
+
+combined.tmm.mat.df.mean.heatdata <- combined.tmm.mat.df.mean %>% 
+  select(-diff,-bear,-human) %>% 
+  pivot_wider(names_from = 'tissue_simple',values_from = 'ratio') %>% 
+  column_to_rownames('og_detail')
+
+lim.tmm <-  max(abs(min(combined.tmm.mat.df.mean.heatdata,na.rm = T)),abs(max(combined.tmm.mat.df.mean.heatdata,na.rm = T))) 
+myBreaks.tmm <- c(seq(-(lim.tmm), 0, length.out=ceiling(paletteLength/2) + 1), 
+              seq(lim/paletteLength, lim.tmm, length.out=floor(paletteLength/2)))
+
+
+pheatmap(combined.tmm.mat.df.mean.heatdata,
+         scale = 'none',
+         color=diverge_hcl(50,palette = 'Blue-Red 3'),
+         breaks=myBreaks.tmm,
+         cutree_rows = 6,
+         border_color = NA,
+         fontsize_col = 6)
+
+
+# PCA using only candidate genes ------------------------------------------
+
+pca.data.all <- combined.tmm.forPlot %>% 
+  select(ogid = 1,sample,tmm_count,species,tissue) %>% 
+  mutate(treatment = ifelse(species=='human','human',
+                            ifelse(str_detect(tissue,'Hibern'),'Hibernation',
+                                   ifelse(str_detect(tissue,'Hyper'),'Hyperphagia',
+                                          ifelse(str_detect(tissue,'Active'),'Active','Necropsy'))))) %>% 
+  filter(treatment != 'Hyperphagia' & treatment != 'Active') %>% 
+  mutate(tissue_simple = str_split_fixed(tissue,'[_ ]',2)[,1]) %>% 
+  mutate(sample_detail = paste(sample,species,treatment,tissue,sep = ':')) %>% 
+  select(ogid,sample_detail,tmm_count) %>% 
+  mutate(tmm_count = log10(tmm_count+1)) %>% 
+  pivot_wider(names_from = sample_detail,values_from = tmm_count) %>% 
+  filter(ogid %in% metab.og$orthogroup1) %>%
+  # select(1,contains('Adipose')) %>% 
+  rowwise() %>% 
+  mutate(median = median(c_across(where(is.numeric)), na.rm = TRUE)) %>% 
+  # filter(ogid != 'OG0000812') %>% 
+  as.data.frame() %>% 
+  column_to_rownames(var = 'ogid') %>% 
+  ungroup() %>% 
+  arrange(-median) %>% 
+  top_n(n=1000,wt=median) %>%
+  select(-median) %>% 
+  as.matrix()
+
+pca.res.all <- prcomp(t(pca.data.all))
+
+
+pca.scores.all <- pca.res.all$x %>% 
+  as.data.frame() %>% 
+  rownames_to_column() %>% 
+  separate(rowname,sep='[:]',into = c('sample','species','treatment','tissue')) %>% 
+  mutate(tissue = str_split_fixed(tissue,'[_ ]',2)[,1]) %>% 
+  filter(tissue != 'NA') %>% 
+  mutate(tissue = str_replace_all(tissue,'Atrium','Heart'),
+         tissue = str_replace_all(tissue,'Ventricle','Heart'),
+         tissue = str_replace_all(tissue,'Small','Small Intestine'),
+         tissue = str_replace_all(tissue,'Gall','Gall Bladder'))
+
+
+pA <- ggplot(pca.scores.all,aes(x=PC1,y=PC2,color=tissue,shape=species)) +
+  geom_point(aes(fill=tissue),size=3) +
+  # scale_shape_manual(values=c('Active'=1,'Hibernation'=2,'human'=0,'Hyperphagia'=4,'Necropsy'=5))+ ### Use when shape=treatment
+  scale_shape_manual(values=c('human'=1,'bear'=23))+### use when shape=species
+  # ggrepel::geom_text_repel(aes(label=tissue)) +
+  xlab(paste('PC1 (Variance explained: ',summary(pca.res.all)$importance[2,1]*100,'%)',sep='')) +
+  ylab(paste('PC2 (Variance explained: ',summary(pca.res.all)$importance[2,2]*100,'%)',sep='')) +
+  theme_linedraw() + theme(panel.grid = element_line(color = 'grey60'))
+
+pB <- ggplot(pca.scores.all,aes(x=PC1,y=PC3,color=tissue,shape=species)) +
+  geom_point(aes(fill=tissue),size=3) +
+  # scale_shape_manual(values=c('Active'=1,'Hibernation'=2,'human'=0,'Hyperphagia'=4,'Necropsy'=5))+ ### Use when shape=treatment
+  scale_shape_manual(values=c('human'=1,'bear'=23))+### use when shape=species
+  # ggrepel::geom_text_repel(aes(label=tissue)) +
+  xlab(paste('PC1 (Variance explained: ',summary(pca.res.all)$importance[2,1]*100,'%)',sep='')) +
+  ylab(paste('PC3 (Variance explained: ',summary(pca.res.all)$importance[2,3]*100,'%)',sep='')) +
+  theme_linedraw()
+
+pA + pB + plot_layout(guides = 'collect',ncol = 1)
+
+

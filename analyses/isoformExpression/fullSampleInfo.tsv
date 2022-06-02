@@ -1,0 +1,86 @@
+id	group
+B01	Adipose (Subcutaneous)
+B07	Skin
+B11	Muscle (Gastrocnemius)
+B17	Liver
+B23	Spleen
+B27	Kidney (Medulla)
+B30	Kidney (Cortex)
+B33	Lung (Right)
+B36	Lung (Left)
+B42	Ventricle (Left)
+B45	Atrium (Left)
+B48	Ventricle (Right)
+B51	Atrium (Right)
+B54	Gall Bladder
+B59	Stomach
+B63	Small Intestine
+CFA	Adipose_Active
+CFHI	Adipose_Hibernation
+CFHY	Adipose_Hyperphagia
+CLA	Liver_Active
+CLHI	Liver_Hibernation
+CLHY	Liver_Hyperphagia
+CMA	Muscle_Active
+CMHI	Muscle_Hibernation
+CMHY	Muscle_Hyperphagia
+D01	Adipose (Subcutaneous)
+D07	Skin
+D10	Muscle (Gastrocnemius)
+D16	Liver
+D22	Spleen
+D25	Kidney (Cortex)
+D28	Kidney (Medulla)
+D31	Lung (Left)
+D34	Lung (Right)
+D37	Ventricle (Left)
+D40	Ventricle (Right)
+D43	Atrium (Left)
+D46	Atrium (Right)
+D49	Gall Bladder
+D52	Stomach
+D55	Small Intestine
+FFA	Adipose_Active
+FFHI	Adipose_Hibernation
+FFHY	Adipose_Hyperphagia
+FLHI	Liver_Hibernation
+FLHY	Liver_Hyperphagia
+FMA	Muscle_Active
+FMHI	Muscle_Hibernation
+FMHY	Muscle_Hyperphagia
+JFA	Adipose_Active
+JFHI	Adipose_Hibernation
+JFHY	Adipose_Hyperphagia
+JLA	Liver_Active
+JLHI	Liver_Hibernation
+JLHY	Liver_Hyperphagia
+JMA	Muscle_Active
+JMHI	Muscle_Hibernation
+JMHY	Muscle_Hyperphagia
+OFA	Adipose_Active
+OFHI	Adipose_Hibernation
+OFHY	Adipose_Hyperphagia
+OLA	Liver_Active
+OLHI	Liver_Hibernation
+OLHY	Liver_Hyperphagia
+OMA	Muscle_Active
+OMHI	Muscle_Hibernation
+OMHY	Muscle_Hyperphagia
+PFA	Adipose_Active
+PFHI	Adipose_Hibernation
+PFHY	Adipose_Hyperphagia
+PLA	Liver_Active
+PLHI	Liver_Hibernation
+PLHY	Liver_Hyperphagia
+PMA	Muscle_Active
+PMHI	Muscle_Hibernation
+PMHY	Muscle_Hyperphagia
+RFA	Adipose_Active
+RFHI	Adipose_Hibernation
+RFHY	Adipose_Hyperphagia
+RLA	Liver_Active
+RLHI	Liver_Hibernation
+RLHY	Liver_Hyperphagia
+RMA	Muscle_Active
+RMHI	Muscle_Hibernation
+RMHY	Muscle_Hyperphagia

@@ -1,0 +1,6 @@
+	ailMel.longCDS.prots	homSap.longCDS.prots	ursAme.longCDS.prots	ursArc.longCDS.prots	ursMar.longCDS.prots
+ailMel.longCDS.prots	0.0	3292.0	2566.0	2767.0	2674.0
+homSap.longCDS.prots	1785.0	0.0	1739.0	1878.0	1781.0
+ursAme.longCDS.prots	1352.0	1785.0	0.0	1289.0	1270.0
+ursArc.longCDS.prots	977.0	1123.0	778.0	0.0	664.0
+ursMar.longCDS.prots	618.0	955.0	582.0	553.0	0.0

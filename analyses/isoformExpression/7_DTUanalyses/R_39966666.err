@@ -1,0 +1,4082 @@
+Loading required package: sparseDRIMSeq
+
+Attaching package: ‘sparseDRIMSeq’
+
+The following object is masked from ‘package:base’:
+
+    proportions
+
+To cite DTUrtle in publications use:
+
+	Tobias Tekath, Martin Dugas.
+	Differential transcript usage analysis
+	of bulk and single-cell RNA-seq data with DTUrtle.
+	Bioinformatics,
+	2021.
+	https://doi.org/10.1093/bioinformatics/btab629.
+
+Use citation(DTUrtle) for BibTeX information.
+── Attaching packages ─────────────────────────────────────── tidyverse 1.3.1 ──
+✔ ggplot2 3.3.5     ✔ purrr   0.3.4
+✔ tibble  3.1.3     ✔ dplyr   1.0.7
+✔ tidyr   1.1.3     ✔ stringr 1.4.0
+✔ readr   2.0.2     ✔ forcats 0.5.1
+── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+✖ dplyr::filter() masks stats::filter()
+✖ dplyr::lag()    masks stats::lag()
+Using tx2gene columns:
+	transcript_id ---> 'feature_id'
+	gene_id ---> 'gene_id'
+
+Comparing in 'group': 'Adipose' vs 'Skin'
+Excluding 28 cells/samples for this comparison!
+
+Proceed with cells/samples: 
+Adipose    Skin 
+      2       2 
+
+Filtering...
+
+Retain 48112 of 78793 features.
+Removed 30681 features.
+
+Performing statistical tests...
+
+* Calculating mean gene expression.. 
+
+* Estimating common precision.. 
+
+! Using common_precision = 4.7973 as prec_init !
+
+* Estimating genewise precision.. 
+
+! Using loess fit as a shrinkage factor !
+
+* Fitting the DM model.. 
+
+   Using the one way approach. 
+
+* Fitting the BB model.. 
+
+   Using the one way approach. 
+
+* Fitting the DM model.. 
+
+   Using the one way approach. 
+
+* Calculating likelihood ratio statistics.. 
+
+* Fitting the BB model.. 
+
+   Using the one way approach. 
+
+* Calculating likelihood ratio statistics.. 
+
+Posthoc filtered 26872 features.
+The returned adjusted p-values are based on a stage-wise testing approach and are only valid for the provided target OFDR level of 5%. If a different target OFDR level is of interest,the entire adjustment should be re-run. 
+
+Found 262 significant genes with 118 significant transcripts (OFDR: 0.05)
+Using tx2gene columns:
+	transcript_id ---> 'feature_id'
+	gene_id ---> 'gene_id'
+
+Comparing in 'group': 'Adipose' vs 'Muscle'
+Excluding 28 cells/samples for this comparison!
+
+Proceed with cells/samples: 
+Adipose  Muscle 
+      2       2 
+
+Filtering...
+
+Retain 46664 of 76600 features.
+Removed 29936 features.
+
+Performing statistical tests...
+
+* Calculating mean gene expression.. 
+
+* Estimating common precision.. 
+
+! Using common_precision = 4.7973 as prec_init !
+
+* Estimating genewise precision.. 
+
+! Using loess fit as a shrinkage factor !
+
+* Fitting the DM model.. 
+
+   Using the one way approach. 
+
+* Fitting the BB model.. 
+
+   Using the one way approach. 
+
+* Fitting the DM model.. 
+
+   Using the one way approach. 
+
+* Calculating likelihood ratio statistics.. 
+
+* Fitting the BB model.. 
+
+   Using the one way approach. 
+
+* Calculating likelihood ratio statistics.. 
+
+Posthoc filtered 22022 features.
+The returned adjusted p-values are based on a stage-wise testing approach and are only valid for the provided target OFDR level of 5%. If a different target OFDR level is of interest,the entire adjustment should be re-run. 
+
+Found 775 significant genes with 490 significant transcripts (OFDR: 0.05)
+Using tx2gene columns:
+	transcript_id ---> 'feature_id'
+	gene_id ---> 'gene_id'
+
+Comparing in 'group': 'Adipose' vs 'Liver'
+Excluding 28 cells/samples for this comparison!
+
+Proceed with cells/samples: 
+Adipose   Liver 
+      2       2 
+
+Filtering...
+
+Retain 48016 of 78098 features.
+Removed 30082 features.
+
+Performing statistical tests...
+
+* Calculating mean gene expression.. 
+
+* Estimating common precision.. 
+
+! Using common_precision = 4.7973 as prec_init !
+
+* Estimating genewise precision.. 
+
+! Using loess fit as a shrinkage factor !
+
+* Fitting the DM model.. 
+
+   Using the one way approach. 
+
+* Fitting the BB model.. 
+
+   Using the one way approach. 
+
+* Fitting the DM model.. 
+
+   Using the one way approach. 
+
+* Calculating likelihood ratio statistics.. 
+
+* Fitting the BB model.. 
+
+   Using the one way approach. 
+
+* Calculating likelihood ratio statistics.. 
+
+Posthoc filtered 23126 features.
+The returned adjusted p-values are based on a stage-wise testing approach and are only valid for the provided target OFDR level of 5%. If a different target OFDR level is of interest,the entire adjustment should be re-run. 
+
+Found 569 significant genes with 271 significant transcripts (OFDR: 0.05)
+Using tx2gene columns:
+	transcript_id ---> 'feature_id'
+	gene_id ---> 'gene_id'
+
+Comparing in 'group': 'Adipose' vs 'Spleen'
+Excluding 28 cells/samples for this comparison!
+
+Proceed with cells/samples: 
+Adipose  Spleen 
+      2       2 
+
+Filtering...
+
+Retain 49378 of 79524 features.
+Removed 30146 features.
+
+Performing statistical tests...
+
+* Calculating mean gene expression.. 
+
+* Estimating common precision.. 
+
+! Using common_precision = 4.7973 as prec_init !
+
+* Estimating genewise precision.. 
+
+! Using loess fit as a shrinkage factor !
+
+* Fitting the DM model.. 
+
+   Using the one way approach. 
+
+* Fitting the BB model.. 
+
+   Using the one way approach. 
+
+* Fitting the DM model.. 
+
+   Using the one way approach. 
+
+* Calculating likelihood ratio statistics.. 
+
+* Fitting the BB model.. 
+
+   Using the one way approach. 
+
+* Calculating likelihood ratio statistics.. 
+
+Posthoc filtered 26910 features.
+The returned adjusted p-values are based on a stage-wise testing approach and are only valid for the provided target OFDR level of 5%. If a different target OFDR level is of interest,the entire adjustment should be re-run. 
+
+Found 657 significant genes with 369 significant transcripts (OFDR: 0.05)
+Using tx2gene columns:
+	transcript_id ---> 'feature_id'
+	gene_id ---> 'gene_id'
+
+Comparing in 'group': 'Adipose' vs 'Kidney_medulla'
+Excluding 28 cells/samples for this comparison!
+
+Proceed with cells/samples: 
+       Adipose Kidney_medulla 
+             2              2 
+
+Filtering...
+
+Retain 49159 of 80443 features.
+Removed 31284 features.
+
+Performing statistical tests...
+
+* Calculating mean gene expression.. 
+
+* Estimating common precision.. 
+
+! Using common_precision = 4.7973 as prec_init !
+
+* Estimating genewise precision.. 
+
+! Using loess fit as a shrinkage factor !
+
+* Fitting the DM model.. 
+
+   Using the one way approach. 
+
+* Fitting the BB model.. 
+
+   Using the one way approach. 
+
+* Fitting the DM model.. 
+
+   Using the one way approach. 
+
+* Calculating likelihood ratio statistics.. 
+
+* Fitting the BB model.. 
+
+   Using the one way approach. 
+
+* Calculating likelihood ratio statistics.. 
+
+Posthoc filtered 25834 features.
+The returned adjusted p-values are based on a stage-wise testing approach and are only valid for the provided target OFDR level of 5%. If a different target OFDR level is of interest,the entire adjustment should be re-run. 
+
+Found 785 significant genes with 446 significant transcripts (OFDR: 0.05)
+Using tx2gene columns:
+	transcript_id ---> 'feature_id'
+	gene_id ---> 'gene_id'
+
+Comparing in 'group': 'Adipose' vs 'Kidney_cortex'
+Excluding 28 cells/samples for this comparison!
+
+Proceed with cells/samples: 
+      Adipose Kidney_cortex 
+            2             2 
+
+Filtering...
+
+Retain 48835 of 79225 features.
+Removed 30390 features.
+
+Performing statistical tests...
+
+* Calculating mean gene expression.. 
+
+* Estimating common precision.. 
+
+! Using common_precision = 4.7973 as prec_init !
+
+* Estimating genewise precision.. 
+
+! Using loess fit as a shrinkage factor !
+
+* Fitting the DM model.. 
+
+   Using the one way approach. 
+
+* Fitting the BB model.. 
+
+   Using the one way approach. 
+
+* Fitting the DM model.. 
+
+   Using the one way approach. 
+
+* Calculating likelihood ratio statistics.. 
+
+* Fitting the BB model.. 
+
+   Using the one way approach. 
+
+* Calculating likelihood ratio statistics.. 
+
+Posthoc filtered 23751 features.
+The returned adjusted p-values are based on a stage-wise testing approach and are only valid for the provided target OFDR level of 5%. If a different target OFDR level is of interest,the entire adjustment should be re-run. 
+
+Found 699 significant genes with 388 significant transcripts (OFDR: 0.05)
+Using tx2gene columns:
+	transcript_id ---> 'feature_id'
+	gene_id ---> 'gene_id'
+
+Comparing in 'group': 'Adipose' vs 'Lung'
+Excluding 26 cells/samples for this comparison!
+
+Proceed with cells/samples: 
+Adipose    Lung 
+      2       4 
+
+Filtering...
+
+Retain 55734 of 85233 features.
+Removed 29499 features.
+
+Performing statistical tests...
+
+* Calculating mean gene expression.. 
+
+* Estimating common precision.. 
+
+! Using common_precision = 4.7973 as prec_init !
+
+* Estimating genewise precision.. 
+
+! Using loess fit as a shrinkage factor !
+
+* Fitting the DM model.. 
+
+   Using the one way approach. 
+
+* Fitting the BB model.. 
+
+   Using the one way approach. 
+
+* Fitting the DM model.. 
+
+   Using the one way approach. 
+
+* Calculating likelihood ratio statistics.. 
+
+* Fitting the BB model.. 
+
+   Using the one way approach. 
+
+* Calculating likelihood ratio statistics.. 
+
+Posthoc filtered 31584 features.
+The returned adjusted p-values are based on a stage-wise testing approach and are only valid for the provided target OFDR level of 5%. If a different target OFDR level is of interest,the entire adjustment should be re-run. 
+
+Found 836 significant genes with 534 significant transcripts (OFDR: 0.05)
+Using tx2gene columns:
+	transcript_id ---> 'feature_id'
+	gene_id ---> 'gene_id'
+
+Comparing in 'group': 'Adipose' vs 'Ventricle'
+Excluding 26 cells/samples for this comparison!
+
+Proceed with cells/samples: 
+  Adipose Ventricle 
+        2         4 
+
+Filtering...
+
+Retain 49541 of 78604 features.
+Removed 29063 features.
+
+Performing statistical tests...
+
+* Calculating mean gene expression.. 
+
+* Estimating common precision.. 
+
+! Using common_precision = 4.7973 as prec_init !
+
+* Estimating genewise precision.. 
+
+! Using loess fit as a shrinkage factor !
+
+* Fitting the DM model.. 
+
+   Using the one way approach. 
+
+* Fitting the BB model.. 
+
+   Using the one way approach. 
+
+* Fitting the DM model.. 
+
+   Using the one way approach. 
+
+* Calculating likelihood ratio statistics.. 
+
+* Fitting the BB model.. 
+
+   Using the one way approach. 
+
+* Calculating likelihood ratio statistics.. 
+
+Posthoc filtered 22518 features.
+The returned adjusted p-values are based on a stage-wise testing approach and are only valid for the provided target OFDR level of 5%. If a different target OFDR level is of interest,the entire adjustment should be re-run. 
+
+Found 901 significant genes with 648 significant transcripts (OFDR: 0.05)
+Using tx2gene columns:
+	transcript_id ---> 'feature_id'
+	gene_id ---> 'gene_id'
+
+Comparing in 'group': 'Adipose' vs 'Atrium'
+Excluding 26 cells/samples for this comparison!
+
+Proceed with cells/samples: 
+Adipose  Atrium 
+      2       4 
+
+Filtering...
+
+Retain 49922 of 79264 features.
+Removed 29342 features.
+
+Performing statistical tests...
+
+* Calculating mean gene expression.. 
+
+* Estimating common precision.. 
+
+! Using common_precision = 4.7973 as prec_init !
+
+* Estimating genewise precision.. 
+
+! Using loess fit as a shrinkage factor !
+
+* Fitting the DM model.. 
+
+   Using the one way approach. 
+
+* Fitting the BB model.. 
+
+   Using the one way approach. 
+
+* Fitting the DM model.. 
+
+   Using the one way approach. 
+
+* Calculating likelihood ratio statistics.. 
+
+* Fitting the BB model.. 
+
+   Using the one way approach. 
+
+* Calculating likelihood ratio statistics.. 
+
+Posthoc filtered 23666 features.
+The returned adjusted p-values are based on a stage-wise testing approach and are only valid for the provided target OFDR level of 5%. If a different target OFDR level is of interest,the entire adjustment should be re-run. 
+
+Found 920 significant genes with 645 significant transcripts (OFDR: 0.05)
+Using tx2gene columns:
+	transcript_id ---> 'feature_id'
+	gene_id ---> 'gene_id'
+
+Comparing in 'group': 'Adipose' vs 'Gall Bladder'
+Excluding 28 cells/samples for this comparison!
+
+Proceed with cells/samples: 
+     Adipose Gall Bladder 
+           2            2 
+
+Filtering...
+
+Retain 54672 of 80813 features.
+Removed 26141 features.
+
+Performing statistical tests...
+
+* Calculating mean gene expression.. 
+
+* Estimating common precision.. 
+
+! Using common_precision = 4.7973 as prec_init !
+
+* Estimating genewise precision.. 
+
+! Using loess fit as a shrinkage factor !
+
+* Fitting the DM model.. 
+
+   Using the one way approach. 
+
+* Fitting the BB model.. 
+
+   Using the one way approach. 
+
+* Fitting the DM model.. 
+
+   Using the one way approach. 
+
+* Calculating likelihood ratio statistics.. 
+
+* Fitting the BB model.. 
+
+   Using the one way approach. 
+
+* Calculating likelihood ratio statistics.. 
+
+Posthoc filtered 27348 features.
+The returned adjusted p-values are based on a stage-wise testing approach and are only valid for the provided target OFDR level of 5%. If a different target OFDR level is of interest,the entire adjustment should be re-run. 
+
+Found 1188 significant genes with 625 significant transcripts (OFDR: 0.05)
+Using tx2gene columns:
+	transcript_id ---> 'feature_id'
+	gene_id ---> 'gene_id'
+
+Comparing in 'group': 'Adipose' vs 'Stomach'
+Excluding 28 cells/samples for this comparison!
+
+Proceed with cells/samples: 
+Adipose Stomach 
+      2       2 
+
+Filtering...
+
+Retain 53558 of 80844 features.
+Removed 27286 features.
+
+Performing statistical tests...
+
+* Calculating mean gene expression.. 
+
+* Estimating common precision.. 
+
+! Using common_precision = 4.7973 as prec_init !
+
+* Estimating genewise precision.. 
+
+! Using loess fit as a shrinkage factor !
+
+* Fitting the DM model.. 
+
+   Using the one way approach. 
+
+* Fitting the BB model.. 
+
+   Using the one way approach. 
+
+* Fitting the DM model.. 
+
+   Using the one way approach. 
+
+* Calculating likelihood ratio statistics.. 
+
+* Fitting the BB model.. 
+
+   Using the one way approach. 
+
+* Calculating likelihood ratio statistics.. 
+
+Posthoc filtered 27438 features.
+The returned adjusted p-values are based on a stage-wise testing approach and are only valid for the provided target OFDR level of 5%. If a different target OFDR level is of interest,the entire adjustment should be re-run. 
+
+Found 331 significant genes with 126 significant transcripts (OFDR: 0.05)
+Using tx2gene columns:
+	transcript_id ---> 'feature_id'
+	gene_id ---> 'gene_id'
+
+Comparing in 'group': 'Adipose' vs 'Small Intestine'
+Excluding 28 cells/samples for this comparison!
+
+Proceed with cells/samples: 
+        Adipose Small Intestine 
+              2               2 
+
+Filtering...
+
+Retain 54903 of 81169 features.
+Removed 26266 features.
+
+Performing statistical tests...
+
+* Calculating mean gene expression.. 
+
+* Estimating common precision.. 
+
+! Using common_precision = 4.7973 as prec_init !
+
+* Estimating genewise precision.. 
+
+! Using loess fit as a shrinkage factor !
+
+* Fitting the DM model.. 
+
+   Using the one way approach. 
+
+* Fitting the BB model.. 
+
+   Using the one way approach. 
+
+* Fitting the DM model.. 
+
+   Using the one way approach. 
+
+* Calculating likelihood ratio statistics.. 
+
+* Fitting the BB model.. 
+
+   Using the one way approach. 
+
+* Calculating likelihood ratio statistics.. 
+
+Posthoc filtered 26923 features.
+The returned adjusted p-values are based on a stage-wise testing approach and are only valid for the provided target OFDR level of 5%. If a different target OFDR level is of interest,the entire adjustment should be re-run. 
+
+Found 586 significant genes with 229 significant transcripts (OFDR: 0.05)
+Using tx2gene columns:
+	transcript_id ---> 'feature_id'
+	gene_id ---> 'gene_id'
+
+Comparing in 'group': 'Skin' vs 'Muscle'
+Excluding 28 cells/samples for this comparison!
+
+Proceed with cells/samples: 
+  Skin Muscle 
+     2      2 
+
+Filtering...
+
+Retain 47668 of 77022 features.
+Removed 29354 features.
+
+Performing statistical tests...
+
+* Calculating mean gene expression.. 
+
+* Estimating common precision.. 
+
+! Using common_precision = 4.7973 as prec_init !
+
+* Estimating genewise precision.. 
+
+! Using loess fit as a shrinkage factor !
+
+* Fitting the DM model.. 
+
+   Using the one way approach. 
+
+* Fitting the BB model.. 
+
+   Using the one way approach. 
+
+* Fitting the DM model.. 
+
+   Using the one way approach. 
+
+* Calculating likelihood ratio statistics.. 
+
+* Fitting the BB model.. 
+
+   Using the one way approach. 
+
+* Calculating likelihood ratio statistics.. 
+
+Posthoc filtered 22236 features.
+The returned adjusted p-values are based on a stage-wise testing approach and are only valid for the provided target OFDR level of 5%. If a different target OFDR level is of interest,the entire adjustment should be re-run. 
+
+Found 748 significant genes with 469 significant transcripts (OFDR: 0.05)
+Using tx2gene columns:
+	transcript_id ---> 'feature_id'
+	gene_id ---> 'gene_id'
+
+Comparing in 'group': 'Skin' vs 'Liver'
+Excluding 28 cells/samples for this comparison!
+
+Proceed with cells/samples: 
+ Skin Liver 
+    2     2 
+
+Filtering...
+
+Retain 48665 of 78179 features.
+Removed 29514 features.
+
+Performing statistical tests...
+
+* Calculating mean gene expression.. 
+
+* Estimating common precision.. 
+
+! Using common_precision = 4.7973 as prec_init !
+
+* Estimating genewise precision.. 
+
+! Using loess fit as a shrinkage factor !
+
+* Fitting the DM model.. 
+
+   Using the one way approach. 
+
+* Fitting the BB model.. 
+
+   Using the one way approach. 
+
+* Fitting the DM model.. 
+
+   Using the one way approach. 
+
+* Calculating likelihood ratio statistics.. 
+
+* Fitting the BB model.. 
+
+   Using the one way approach. 
+
+* Calculating likelihood ratio statistics.. 
+
+Posthoc filtered 23313 features.
+The returned adjusted p-values are based on a stage-wise testing approach and are only valid for the provided target OFDR level of 5%. If a different target OFDR level is of interest,the entire adjustment should be re-run. 
+
+Found 579 significant genes with 309 significant transcripts (OFDR: 0.05)
+Using tx2gene columns:
+	transcript_id ---> 'feature_id'
+	gene_id ---> 'gene_id'
+
+Comparing in 'group': 'Skin' vs 'Spleen'
+Excluding 28 cells/samples for this comparison!
+
+Proceed with cells/samples: 
+  Skin Spleen 
+     2      2 
+
+Filtering...
+
+Retain 49917 of 79625 features.
+Removed 29708 features.
+
+Performing statistical tests...
+
+* Calculating mean gene expression.. 
+
+* Estimating common precision.. 
+
+! Using common_precision = 4.7973 as prec_init !
+
+* Estimating genewise precision.. 
+
+! Using loess fit as a shrinkage factor !
+
+* Fitting the DM model.. 
+
+   Using the one way approach. 
+
+* Fitting the BB model.. 
+
+   Using the one way approach. 
+
+* Fitting the DM model.. 
+
+   Using the one way approach. 
+
+* Calculating likelihood ratio statistics.. 
+
+* Fitting the BB model.. 
+
+   Using the one way approach. 
+
+* Calculating likelihood ratio statistics.. 
+
+Posthoc filtered 26661 features.
+The returned adjusted p-values are based on a stage-wise testing approach and are only valid for the provided target OFDR level of 5%. If a different target OFDR level is of interest,the entire adjustment should be re-run. 
+
+Found 707 significant genes with 403 significant transcripts (OFDR: 0.05)
+Using tx2gene columns:
+	transcript_id ---> 'feature_id'
+	gene_id ---> 'gene_id'
+
+Comparing in 'group': 'Skin' vs 'Kidney_medulla'
+Excluding 28 cells/samples for this comparison!
+
+Proceed with cells/samples: 
+          Skin Kidney_medulla 
+             2              2 
+
+Filtering...
+
+Retain 49663 of 80197 features.
+Removed 30534 features.
+
+Performing statistical tests...
+
+* Calculating mean gene expression.. 
+
+* Estimating common precision.. 
+
+! Using common_precision = 4.7973 as prec_init !
+
+* Estimating genewise precision.. 
+
+! Using loess fit as a shrinkage factor !
+
+* Fitting the DM model.. 
+
+   Using the one way approach. 
+
+* Fitting the BB model.. 
+
+   Using the one way approach. 
+
+* Fitting the DM model.. 
+
+   Using the one way approach. 
+
+* Calculating likelihood ratio statistics.. 
+
+* Fitting the BB model.. 
+
+   Using the one way approach. 
+
+* Calculating likelihood ratio statistics.. 
+
+Posthoc filtered 25871 features.
+The returned adjusted p-values are based on a stage-wise testing approach and are only valid for the provided target OFDR level of 5%. If a different target OFDR level is of interest,the entire adjustment should be re-run. 
+
+Found 761 significant genes with 417 significant transcripts (OFDR: 0.05)
+Using tx2gene columns:
+	transcript_id ---> 'feature_id'
+	gene_id ---> 'gene_id'
+
+Comparing in 'group': 'Skin' vs 'Kidney_cortex'
+Excluding 28 cells/samples for this comparison!
+
+Proceed with cells/samples: 
+         Skin Kidney_cortex 
+            2             2 
+
+Filtering...
+
+Retain 49274 of 78946 features.
+Removed 29672 features.
+
+Performing statistical tests...
+
+* Calculating mean gene expression.. 
+
+* Estimating common precision.. 
+
+! Using common_precision = 4.7973 as prec_init !
+
+* Estimating genewise precision.. 
+
+! Using loess fit as a shrinkage factor !
+
+* Fitting the DM model.. 
+
+   Using the one way approach. 
+
+* Fitting the BB model.. 
+
+   Using the one way approach. 
+
+* Fitting the DM model.. 
+
+   Using the one way approach. 
+
+* Calculating likelihood ratio statistics.. 
+
+* Fitting the BB model.. 
+
+   Using the one way approach. 
+
+* Calculating likelihood ratio statistics.. 
+
+Posthoc filtered 23834 features.
+The returned adjusted p-values are based on a stage-wise testing approach and are only valid for the provided target OFDR level of 5%. If a different target OFDR level is of interest,the entire adjustment should be re-run. 
+
+Found 621 significant genes with 343 significant transcripts (OFDR: 0.05)
+Using tx2gene columns:
+	transcript_id ---> 'feature_id'
+	gene_id ---> 'gene_id'
+
+Comparing in 'group': 'Skin' vs 'Lung'
+Excluding 26 cells/samples for this comparison!
+
+Proceed with cells/samples: 
+Skin Lung 
+   2    4 
+
+Filtering...
+
+Retain 56045 of 85258 features.
+Removed 29213 features.
+
+Performing statistical tests...
+
+* Calculating mean gene expression.. 
+
+* Estimating common precision.. 
+
+! Using common_precision = 4.7973 as prec_init !
+
+* Estimating genewise precision.. 
+
+! Using loess fit as a shrinkage factor !
+
+* Fitting the DM model.. 
+
+   Using the one way approach. 
+
+* Fitting the BB model.. 
+
+   Using the one way approach. 
+
+* Fitting the DM model.. 
+
+   Using the one way approach. 
+
+* Calculating likelihood ratio statistics.. 
+
+* Fitting the BB model.. 
+
+   Using the one way approach. 
+
+* Calculating likelihood ratio statistics.. 
+
+Posthoc filtered 31417 features.
+The returned adjusted p-values are based on a stage-wise testing approach and are only valid for the provided target OFDR level of 5%. If a different target OFDR level is of interest,the entire adjustment should be re-run. 
+
+Found 887 significant genes with 625 significant transcripts (OFDR: 0.05)
+Using tx2gene columns:
+	transcript_id ---> 'feature_id'
+	gene_id ---> 'gene_id'
+
+Comparing in 'group': 'Skin' vs 'Ventricle'
+Excluding 26 cells/samples for this comparison!
+
+Proceed with cells/samples: 
+     Skin Ventricle 
+        2         4 
+
+Filtering...
+
+Retain 50509 of 79051 features.
+Removed 28542 features.
+
+Performing statistical tests...
+
+* Calculating mean gene expression.. 
+
+* Estimating common precision.. 
+
+! Using common_precision = 4.7973 as prec_init !
+
+* Estimating genewise precision.. 
+
+! Using loess fit as a shrinkage factor !
+
+* Fitting the DM model.. 
+
+   Using the one way approach. 
+
+* Fitting the BB model.. 
+
+   Using the one way approach. 
+
+* Fitting the DM model.. 
+
+   Using the one way approach. 
+
+* Calculating likelihood ratio statistics.. 
+
+* Fitting the BB model.. 
+
+   Using the one way approach. 
+
+* Calculating likelihood ratio statistics.. 
+
+Posthoc filtered 22852 features.
+The returned adjusted p-values are based on a stage-wise testing approach and are only valid for the provided target OFDR level of 5%. If a different target OFDR level is of interest,the entire adjustment should be re-run. 
+
+Found 1044 significant genes with 731 significant transcripts (OFDR: 0.05)
+Using tx2gene columns:
+	transcript_id ---> 'feature_id'
+	gene_id ---> 'gene_id'
+
+Comparing in 'group': 'Skin' vs 'Atrium'
+Excluding 26 cells/samples for this comparison!
+
+Proceed with cells/samples: 
+  Skin Atrium 
+     2      4 
+
+Filtering...
+
+Retain 50871 of 79716 features.
+Removed 28845 features.
+
+Performing statistical tests...
+
+* Calculating mean gene expression.. 
+
+* Estimating common precision.. 
+
+! Using common_precision = 4.7973 as prec_init !
+
+* Estimating genewise precision.. 
+
+! Using loess fit as a shrinkage factor !
+
+* Fitting the DM model.. 
+
+   Using the one way approach. 
+
+* Fitting the BB model.. 
+
+   Using the one way approach. 
+
+* Fitting the DM model.. 
+
+   Using the one way approach. 
+
+* Calculating likelihood ratio statistics.. 
+
+* Fitting the BB model.. 
+
+   Using the one way approach. 
+
+* Calculating likelihood ratio statistics.. 
+
+Posthoc filtered 23859 features.
+The returned adjusted p-values are based on a stage-wise testing approach and are only valid for the provided target OFDR level of 5%. If a different target OFDR level is of interest,the entire adjustment should be re-run. 
+
+Found 1024 significant genes with 715 significant transcripts (OFDR: 0.05)
+Using tx2gene columns:
+	transcript_id ---> 'feature_id'
+	gene_id ---> 'gene_id'
+
+Comparing in 'group': 'Skin' vs 'Gall Bladder'
+Excluding 28 cells/samples for this comparison!
+
+Proceed with cells/samples: 
+        Skin Gall Bladder 
+           2            2 
+
+Filtering...
+
+Retain 54614 of 80607 features.
+Removed 25993 features.
+
+Performing statistical tests...
+
+* Calculating mean gene expression.. 
+
+* Estimating common precision.. 
+
+! Using common_precision = 4.7973 as prec_init !
+
+* Estimating genewise precision.. 
+
+! Using loess fit as a shrinkage factor !
+
+* Fitting the DM model.. 
+
+   Using the one way approach. 
+
+* Fitting the BB model.. 
+
+   Using the one way approach. 
+
+* Fitting the DM model.. 
+
+   Using the one way approach. 
+
+* Calculating likelihood ratio statistics.. 
+
+* Fitting the BB model.. 
+
+   Using the one way approach. 
+
+* Calculating likelihood ratio statistics.. 
+
+Posthoc filtered 27311 features.
+The returned adjusted p-values are based on a stage-wise testing approach and are only valid for the provided target OFDR level of 5%. If a different target OFDR level is of interest,the entire adjustment should be re-run. 
+
+Found 1005 significant genes with 522 significant transcripts (OFDR: 0.05)
+Using tx2gene columns:
+	transcript_id ---> 'feature_id'
+	gene_id ---> 'gene_id'
+
+Comparing in 'group': 'Skin' vs 'Stomach'
+Excluding 28 cells/samples for this comparison!
+
+Proceed with cells/samples: 
+   Skin Stomach 
+      2       2 
+
+Filtering...
+
+Retain 53666 of 80540 features.
+Removed 26874 features.
+
+Performing statistical tests...
+
+* Calculating mean gene expression.. 
+
+* Estimating common precision.. 
+
+! Using common_precision = 4.7973 as prec_init !
+
+* Estimating genewise precision.. 
+
+! Using loess fit as a shrinkage factor !
+
+* Fitting the DM model.. 
+
+   Using the one way approach. 
+
+* Fitting the BB model.. 
+
+   Using the one way approach. 
+
+* Fitting the DM model.. 
+
+   Using the one way approach. 
+
+* Calculating likelihood ratio statistics.. 
+
+* Fitting the BB model.. 
+
+   Using the one way approach. 
+
+* Calculating likelihood ratio statistics.. 
+
+Posthoc filtered 27353 features.
+The returned adjusted p-values are based on a stage-wise testing approach and are only valid for the provided target OFDR level of 5%. If a different target OFDR level is of interest,the entire adjustment should be re-run. 
+
+Found 325 significant genes with 129 significant transcripts (OFDR: 0.05)
+Using tx2gene columns:
+	transcript_id ---> 'feature_id'
+	gene_id ---> 'gene_id'
+
+Comparing in 'group': 'Skin' vs 'Small Intestine'
+Excluding 28 cells/samples for this comparison!
+
+Proceed with cells/samples: 
+           Skin Small Intestine 
+              2               2 
+
+Filtering...
+
+Retain 54902 of 80855 features.
+Removed 25953 features.
+
+Performing statistical tests...
+
+* Calculating mean gene expression.. 
+
+* Estimating common precision.. 
+
+! Using common_precision = 4.7973 as prec_init !
+
+* Estimating genewise precision.. 
+
+! Using loess fit as a shrinkage factor !
+
+* Fitting the DM model.. 
+
+   Using the one way approach. 
+
+* Fitting the BB model.. 
+
+   Using the one way approach. 
+
+* Fitting the DM model.. 
+
+   Using the one way approach. 
+
+* Calculating likelihood ratio statistics.. 
+
+* Fitting the BB model.. 
+
+   Using the one way approach. 
+
+* Calculating likelihood ratio statistics.. 
+
+Posthoc filtered 26878 features.
+The returned adjusted p-values are based on a stage-wise testing approach and are only valid for the provided target OFDR level of 5%. If a different target OFDR level is of interest,the entire adjustment should be re-run. 
+
+Found 518 significant genes with 215 significant transcripts (OFDR: 0.05)
+Using tx2gene columns:
+	transcript_id ---> 'feature_id'
+	gene_id ---> 'gene_id'
+
+Comparing in 'group': 'Muscle' vs 'Liver'
+Excluding 28 cells/samples for this comparison!
+
+Proceed with cells/samples: 
+Muscle  Liver 
+     2      2 
+
+Filtering...
+
+Retain 43728 of 71701 features.
+Removed 27973 features.
+
+Performing statistical tests...
+
+* Calculating mean gene expression.. 
+
+* Estimating common precision.. 
+
+! Using common_precision = 4.7973 as prec_init !
+
+* Estimating genewise precision.. 
+
+! Using loess fit as a shrinkage factor !
+
+* Fitting the DM model.. 
+
+   Using the one way approach. 
+
+* Fitting the BB model.. 
+
+   Using the one way approach. 
+
+* Fitting the DM model.. 
+
+   Using the one way approach. 
+
+* Calculating likelihood ratio statistics.. 
+
+* Fitting the BB model.. 
+
+   Using the one way approach. 
+
+* Calculating likelihood ratio statistics.. 
+
+Posthoc filtered 19140 features.
+The returned adjusted p-values are based on a stage-wise testing approach and are only valid for the provided target OFDR level of 5%. If a different target OFDR level is of interest,the entire adjustment should be re-run. 
+
+Found 407 significant genes with 230 significant transcripts (OFDR: 0.05)
+Using tx2gene columns:
+	transcript_id ---> 'feature_id'
+	gene_id ---> 'gene_id'
+
+Comparing in 'group': 'Muscle' vs 'Spleen'
+Excluding 28 cells/samples for this comparison!
+
+Proceed with cells/samples: 
+Muscle Spleen 
+     2      2 
+
+Filtering...
+
+Retain 47229 of 76341 features.
+Removed 29112 features.
+
+Performing statistical tests...
+
+* Calculating mean gene expression.. 
+
+* Estimating common precision.. 
+
+! Using common_precision = 4.7973 as prec_init !
+
+* Estimating genewise precision.. 
+
+! Using loess fit as a shrinkage factor !
+
+* Fitting the DM model.. 
+
+   Using the one way approach. 
+
+* Fitting the BB model.. 
+
+   Using the one way approach. 
+
+* Fitting the DM model.. 
+
+   Using the one way approach. 
+
+* Calculating likelihood ratio statistics.. 
+
+* Fitting the BB model.. 
+
+   Using the one way approach. 
+
+* Calculating likelihood ratio statistics.. 
+
+Posthoc filtered 22789 features.
+The returned adjusted p-values are based on a stage-wise testing approach and are only valid for the provided target OFDR level of 5%. If a different target OFDR level is of interest,the entire adjustment should be re-run. 
+
+Found 703 significant genes with 474 significant transcripts (OFDR: 0.05)
+Using tx2gene columns:
+	transcript_id ---> 'feature_id'
+	gene_id ---> 'gene_id'
+
+Comparing in 'group': 'Muscle' vs 'Kidney_medulla'
+Excluding 28 cells/samples for this comparison!
+
+Proceed with cells/samples: 
+        Muscle Kidney_medulla 
+             2              2 
+
+Filtering...
+
+Retain 46357 of 76668 features.
+Removed 30311 features.
+
+Performing statistical tests...
+
+* Calculating mean gene expression.. 
+
+* Estimating common precision.. 
+
+! Using common_precision = 4.7973 as prec_init !
+
+* Estimating genewise precision.. 
+
+! Using loess fit as a shrinkage factor !
+
+* Fitting the DM model.. 
+
+   Using the one way approach. 
+
+* Fitting the BB model.. 
+
+   Using the one way approach. 
+
+* Fitting the DM model.. 
+
+   Using the one way approach. 
+
+* Calculating likelihood ratio statistics.. 
+
+* Fitting the BB model.. 
+
+   Using the one way approach. 
+
+* Calculating likelihood ratio statistics.. 
+
+Posthoc filtered 21989 features.
+The returned adjusted p-values are based on a stage-wise testing approach and are only valid for the provided target OFDR level of 5%. If a different target OFDR level is of interest,the entire adjustment should be re-run. 
+
+Found 659 significant genes with 381 significant transcripts (OFDR: 0.05)
+Using tx2gene columns:
+	transcript_id ---> 'feature_id'
+	gene_id ---> 'gene_id'
+
+Comparing in 'group': 'Muscle' vs 'Kidney_cortex'
+Excluding 28 cells/samples for this comparison!
+
+Proceed with cells/samples: 
+       Muscle Kidney_cortex 
+            2             2 
+
+Filtering...
+
+Retain 45263 of 73988 features.
+Removed 28725 features.
+
+Performing statistical tests...
+
+* Calculating mean gene expression.. 
+
+* Estimating common precision.. 
+
+! Using common_precision = 4.7973 as prec_init !
+
+* Estimating genewise precision.. 
+
+! Using loess fit as a shrinkage factor !
+
+* Fitting the DM model.. 
+
+   Using the one way approach. 
+
+* Fitting the BB model.. 
+
+   Using the one way approach. 
+
+* Fitting the DM model.. 
+
+   Using the one way approach. 
+
+* Calculating likelihood ratio statistics.. 
+
+* Fitting the BB model.. 
+
+   Using the one way approach. 
+
+* Calculating likelihood ratio statistics.. 
+
+Posthoc filtered 19950 features.
+The returned adjusted p-values are based on a stage-wise testing approach and are only valid for the provided target OFDR level of 5%. If a different target OFDR level is of interest,the entire adjustment should be re-run. 
+
+Found 533 significant genes with 315 significant transcripts (OFDR: 0.05)
+Using tx2gene columns:
+	transcript_id ---> 'feature_id'
+	gene_id ---> 'gene_id'
+
+Comparing in 'group': 'Muscle' vs 'Lung'
+Excluding 26 cells/samples for this comparison!
+
+Proceed with cells/samples: 
+Muscle   Lung 
+     2      4 
+
+Filtering...
+
+Retain 55114 of 84355 features.
+Removed 29241 features.
+
+Performing statistical tests...
+
+* Calculating mean gene expression.. 
+
+* Estimating common precision.. 
+
+! Using common_precision = 4.7973 as prec_init !
+
+* Estimating genewise precision.. 
+
+! Using loess fit as a shrinkage factor !
+
+* Fitting the DM model.. 
+
+   Using the one way approach. 
+
+* Fitting the BB model.. 
+
+   Using the one way approach. 
+
+* Fitting the DM model.. 
+
+   Using the one way approach. 
+
+* Calculating likelihood ratio statistics.. 
+
+* Fitting the BB model.. 
+
+   Using the one way approach. 
+
+* Calculating likelihood ratio statistics.. 
+
+Posthoc filtered 28516 features.
+The returned adjusted p-values are based on a stage-wise testing approach and are only valid for the provided target OFDR level of 5%. If a different target OFDR level is of interest,the entire adjustment should be re-run. 
+
+Found 1176 significant genes with 937 significant transcripts (OFDR: 0.05)
+Using tx2gene columns:
+	transcript_id ---> 'feature_id'
+	gene_id ---> 'gene_id'
+
+Comparing in 'group': 'Muscle' vs 'Ventricle'
+Excluding 26 cells/samples for this comparison!
+
+Proceed with cells/samples: 
+   Muscle Ventricle 
+        2         4 
+
+Filtering...
+
+Retain 43294 of 70484 features.
+Removed 27190 features.
+
+Performing statistical tests...
+
+* Calculating mean gene expression.. 
+
+* Estimating common precision.. 
+
+! Using common_precision = 4.7973 as prec_init !
+
+* Estimating genewise precision.. 
+
+! Using loess fit as a shrinkage factor !
+
+* Fitting the DM model.. 
+
+   Using the one way approach. 
+
+* Fitting the BB model.. 
+
+   Using the one way approach. 
+
+* Fitting the DM model.. 
+
+   Using the one way approach. 
+
+* Calculating likelihood ratio statistics.. 
+
+* Fitting the BB model.. 
+
+   Using the one way approach. 
+
+* Calculating likelihood ratio statistics.. 
+
+Posthoc filtered 19151 features.
+The returned adjusted p-values are based on a stage-wise testing approach and are only valid for the provided target OFDR level of 5%. If a different target OFDR level is of interest,the entire adjustment should be re-run. 
+
+Found 215 significant genes with 148 significant transcripts (OFDR: 0.05)
+Using tx2gene columns:
+	transcript_id ---> 'feature_id'
+	gene_id ---> 'gene_id'
+
+Comparing in 'group': 'Muscle' vs 'Atrium'
+Excluding 26 cells/samples for this comparison!
+
+Proceed with cells/samples: 
+Muscle Atrium 
+     2      4 
+
+Filtering...
+
+Retain 44815 of 72474 features.
+Removed 27659 features.
+
+Performing statistical tests...
+
+* Calculating mean gene expression.. 
+
+* Estimating common precision.. 
+
+! Using common_precision = 4.7973 as prec_init !
+
+* Estimating genewise precision.. 
+
+! Using loess fit as a shrinkage factor !
+
+* Fitting the DM model.. 
+
+   Using the one way approach. 
+
+* Fitting the BB model.. 
+
+   Using the one way approach. 
+
+* Fitting the DM model.. 
+
+   Using the one way approach. 
+
+* Calculating likelihood ratio statistics.. 
+
+* Fitting the BB model.. 
+
+   Using the one way approach. 
+
+* Calculating likelihood ratio statistics.. 
+
+Posthoc filtered 20495 features.
+The returned adjusted p-values are based on a stage-wise testing approach and are only valid for the provided target OFDR level of 5%. If a different target OFDR level is of interest,the entire adjustment should be re-run. 
+
+Found 235 significant genes with 167 significant transcripts (OFDR: 0.05)
+Using tx2gene columns:
+	transcript_id ---> 'feature_id'
+	gene_id ---> 'gene_id'
+
+Comparing in 'group': 'Muscle' vs 'Gall Bladder'
+Excluding 28 cells/samples for this comparison!
+
+Proceed with cells/samples: 
+      Muscle Gall Bladder 
+           2            2 
+
+Filtering...
+
+Retain 52985 of 78414 features.
+Removed 25429 features.
+
+Performing statistical tests...
+
+* Calculating mean gene expression.. 
+
+* Estimating common precision.. 
+
+! Using common_precision = 4.7973 as prec_init !
+
+* Estimating genewise precision.. 
+
+! Using loess fit as a shrinkage factor !
+
+* Fitting the DM model.. 
+
+   Using the one way approach. 
+
+* Fitting the BB model.. 
+
+   Using the one way approach. 
+
+* Fitting the DM model.. 
+
+   Using the one way approach. 
+
+* Calculating likelihood ratio statistics.. 
+
+* Fitting the BB model.. 
+
+   Using the one way approach. 
+
+* Calculating likelihood ratio statistics.. 
+
+Posthoc filtered 23639 features.
+The returned adjusted p-values are based on a stage-wise testing approach and are only valid for the provided target OFDR level of 5%. If a different target OFDR level is of interest,the entire adjustment should be re-run. 
+
+Found 1167 significant genes with 648 significant transcripts (OFDR: 0.05)
+Using tx2gene columns:
+	transcript_id ---> 'feature_id'
+	gene_id ---> 'gene_id'
+
+Comparing in 'group': 'Muscle' vs 'Stomach'
+Excluding 28 cells/samples for this comparison!
+
+Proceed with cells/samples: 
+ Muscle Stomach 
+      2       2 
+
+Filtering...
+
+Retain 51512 of 77795 features.
+Removed 26283 features.
+
+Performing statistical tests...
+
+* Calculating mean gene expression.. 
+
+* Estimating common precision.. 
+
+! Using common_precision = 4.7973 as prec_init !
+
+* Estimating genewise precision.. 
+
+! Using loess fit as a shrinkage factor !
+
+* Fitting the DM model.. 
+
+   Using the one way approach. 
+
+* Fitting the BB model.. 
+
+   Using the one way approach. 
+
+* Fitting the DM model.. 
+
+   Using the one way approach. 
+
+* Calculating likelihood ratio statistics.. 
+
+* Fitting the BB model.. 
+
+   Using the one way approach. 
+
+* Calculating likelihood ratio statistics.. 
+
+Posthoc filtered 24011 features.
+The returned adjusted p-values are based on a stage-wise testing approach and are only valid for the provided target OFDR level of 5%. If a different target OFDR level is of interest,the entire adjustment should be re-run. 
+
+Found 434 significant genes with 189 significant transcripts (OFDR: 0.05)
+Using tx2gene columns:
+	transcript_id ---> 'feature_id'
+	gene_id ---> 'gene_id'
+
+Comparing in 'group': 'Muscle' vs 'Small Intestine'
+Excluding 28 cells/samples for this comparison!
+
+Proceed with cells/samples: 
+         Muscle Small Intestine 
+              2               2 
+
+Filtering...
+
+Retain 52738 of 78012 features.
+Removed 25274 features.
+
+Performing statistical tests...
+
+* Calculating mean gene expression.. 
+
+* Estimating common precision.. 
+
+! Using common_precision = 55.7281 as prec_init !
+
+* Estimating genewise precision.. 
+
+! Using loess fit as a shrinkage factor !
+
+* Fitting the DM model.. 
+
+   Using the one way approach. 
+
+* Fitting the BB model.. 
+
+   Using the one way approach. 
+
+* Fitting the DM model.. 
+
+   Using the one way approach. 
+
+* Calculating likelihood ratio statistics.. 
+
+* Fitting the BB model.. 
+
+   Using the one way approach. 
+
+* Calculating likelihood ratio statistics.. 
+
+Posthoc filtered 23312 features.
+The returned adjusted p-values are based on a stage-wise testing approach and are only valid for the provided target OFDR level of 5%. If a different target OFDR level is of interest,the entire adjustment should be re-run. 
+
+Found 664 significant genes with 322 significant transcripts (OFDR: 0.05)
+Using tx2gene columns:
+	transcript_id ---> 'feature_id'
+	gene_id ---> 'gene_id'
+
+Comparing in 'group': 'Liver' vs 'Spleen'
+Excluding 28 cells/samples for this comparison!
+
+Proceed with cells/samples: 
+ Liver Spleen 
+     2      2 
+
+Filtering...
+
+Retain 47573 of 76793 features.
+Removed 29220 features.
+
+Performing statistical tests...
+
+* Calculating mean gene expression.. 
+
+* Estimating common precision.. 
+
+! Using common_precision = 4.7973 as prec_init !
+
+* Estimating genewise precision.. 
+
+! Using loess fit as a shrinkage factor !
+
+* Fitting the DM model.. 
+
+   Using the one way approach. 
+
+* Fitting the BB model.. 
+
+   Using the one way approach. 
+
+* Fitting the DM model.. 
+
+   Using the one way approach. 
+
+* Calculating likelihood ratio statistics.. 
+
+* Fitting the BB model.. 
+
+   Using the one way approach. 
+
+* Calculating likelihood ratio statistics.. 
+
+Posthoc filtered 23760 features.
+The returned adjusted p-values are based on a stage-wise testing approach and are only valid for the provided target OFDR level of 5%. If a different target OFDR level is of interest,the entire adjustment should be re-run. 
+
+Found 386 significant genes with 206 significant transcripts (OFDR: 0.05)
+Using tx2gene columns:
+	transcript_id ---> 'feature_id'
+	gene_id ---> 'gene_id'
+
+Comparing in 'group': 'Liver' vs 'Kidney_medulla'
+Excluding 28 cells/samples for this comparison!
+
+Proceed with cells/samples: 
+         Liver Kidney_medulla 
+             2              2 
+
+Filtering...
+
+Retain 46305 of 76266 features.
+Removed 29961 features.
+
+Performing statistical tests...
+
+* Calculating mean gene expression.. 
+
+* Estimating common precision.. 
+
+! Using common_precision = 4.7973 as prec_init !
+
+* Estimating genewise precision.. 
+
+! Using loess fit as a shrinkage factor !
+
+* Fitting the DM model.. 
+
+   Using the one way approach. 
+
+* Fitting the BB model.. 
+
+   Using the one way approach. 
+
+* Fitting the DM model.. 
+
+   Using the one way approach. 
+
+* Calculating likelihood ratio statistics.. 
+
+* Fitting the BB model.. 
+
+   Using the one way approach. 
+
+* Calculating likelihood ratio statistics.. 
+
+Posthoc filtered 23019 features.
+The returned adjusted p-values are based on a stage-wise testing approach and are only valid for the provided target OFDR level of 5%. If a different target OFDR level is of interest,the entire adjustment should be re-run. 
+
+Found 249 significant genes with 120 significant transcripts (OFDR: 0.05)
+Using tx2gene columns:
+	transcript_id ---> 'feature_id'
+	gene_id ---> 'gene_id'
+
+Comparing in 'group': 'Liver' vs 'Kidney_cortex'
+Excluding 28 cells/samples for this comparison!
+
+Proceed with cells/samples: 
+        Liver Kidney_cortex 
+            2             2 
+
+Filtering...
+
+Retain 45170 of 73656 features.
+Removed 28486 features.
+
+Performing statistical tests...
+
+* Calculating mean gene expression.. 
+
+* Estimating common precision.. 
+
+! Using common_precision = 4.7973 as prec_init !
+
+* Estimating genewise precision.. 
+
+! Using loess fit as a shrinkage factor !
+
+* Fitting the DM model.. 
+
+   Using the one way approach. 
+
+* Fitting the BB model.. 
+
+   Using the one way approach. 
+
+* Fitting the DM model.. 
+
+   Using the one way approach. 
+
+* Calculating likelihood ratio statistics.. 
+
+* Fitting the BB model.. 
+
+   Using the one way approach. 
+
+* Calculating likelihood ratio statistics.. 
+
+Posthoc filtered 20942 features.
+The returned adjusted p-values are based on a stage-wise testing approach and are only valid for the provided target OFDR level of 5%. If a different target OFDR level is of interest,the entire adjustment should be re-run. 
+
+Found 196 significant genes with 98 significant transcripts (OFDR: 0.05)
+Using tx2gene columns:
+	transcript_id ---> 'feature_id'
+	gene_id ---> 'gene_id'
+
+Comparing in 'group': 'Liver' vs 'Lung'
+Excluding 26 cells/samples for this comparison!
+
+Proceed with cells/samples: 
+Liver  Lung 
+    2     4 
+
+Filtering...
+
+Retain 55166 of 84565 features.
+Removed 29399 features.
+
+Performing statistical tests...
+
+* Calculating mean gene expression.. 
+
+* Estimating common precision.. 
+
+! Using common_precision = 4.7973 as prec_init !
+
+* Estimating genewise precision.. 
+
+! Using loess fit as a shrinkage factor !
+
+* Fitting the DM model.. 
+
+   Using the one way approach. 
+
+* Fitting the BB model.. 
+
+   Using the one way approach. 
+
+* Fitting the DM model.. 
+
+   Using the one way approach. 
+
+* Calculating likelihood ratio statistics.. 
+
+* Fitting the BB model.. 
+
+   Using the one way approach. 
+
+* Calculating likelihood ratio statistics.. 
+
+Posthoc filtered 29398 features.
+The returned adjusted p-values are based on a stage-wise testing approach and are only valid for the provided target OFDR level of 5%. If a different target OFDR level is of interest,the entire adjustment should be re-run. 
+
+Found 667 significant genes with 434 significant transcripts (OFDR: 0.05)
+Using tx2gene columns:
+	transcript_id ---> 'feature_id'
+	gene_id ---> 'gene_id'
+
+Comparing in 'group': 'Liver' vs 'Ventricle'
+Excluding 26 cells/samples for this comparison!
+
+Proceed with cells/samples: 
+    Liver Ventricle 
+        2         4 
+
+Filtering...
+
+Retain 47019 of 74738 features.
+Removed 27719 features.
+
+Performing statistical tests...
+
+* Calculating mean gene expression.. 
+
+* Estimating common precision.. 
+
+! Using common_precision = 4.7973 as prec_init !
+
+* Estimating genewise precision.. 
+
+! Using loess fit as a shrinkage factor !
+
+* Fitting the DM model.. 
+
+   Using the one way approach. 
+
+* Fitting the BB model.. 
+
+   Using the one way approach. 
+
+* Fitting the DM model.. 
+
+   Using the one way approach. 
+
+* Calculating likelihood ratio statistics.. 
+
+* Fitting the BB model.. 
+
+   Using the one way approach. 
+
+* Calculating likelihood ratio statistics.. 
+
+Posthoc filtered 20478 features.
+The returned adjusted p-values are based on a stage-wise testing approach and are only valid for the provided target OFDR level of 5%. If a different target OFDR level is of interest,the entire adjustment should be re-run. 
+
+Found 515 significant genes with 330 significant transcripts (OFDR: 0.05)
+Using tx2gene columns:
+	transcript_id ---> 'feature_id'
+	gene_id ---> 'gene_id'
+
+Comparing in 'group': 'Liver' vs 'Atrium'
+Excluding 26 cells/samples for this comparison!
+
+Proceed with cells/samples: 
+ Liver Atrium 
+     2      4 
+
+Filtering...
+
+Retain 47948 of 76180 features.
+Removed 28232 features.
+
+Performing statistical tests...
+
+* Calculating mean gene expression.. 
+
+* Estimating common precision.. 
+
+! Using common_precision = 4.7973 as prec_init !
+
+* Estimating genewise precision.. 
+
+! Using loess fit as a shrinkage factor !
+
+* Fitting the DM model.. 
+
+   Using the one way approach. 
+
+* Fitting the BB model.. 
+
+   Using the one way approach. 
+
+* Fitting the DM model.. 
+
+   Using the one way approach. 
+
+* Calculating likelihood ratio statistics.. 
+
+* Fitting the BB model.. 
+
+   Using the one way approach. 
+
+* Calculating likelihood ratio statistics.. 
+
+Posthoc filtered 21539 features.
+The returned adjusted p-values are based on a stage-wise testing approach and are only valid for the provided target OFDR level of 5%. If a different target OFDR level is of interest,the entire adjustment should be re-run. 
+
+Found 530 significant genes with 364 significant transcripts (OFDR: 0.05)
+Using tx2gene columns:
+	transcript_id ---> 'feature_id'
+	gene_id ---> 'gene_id'
+
+Comparing in 'group': 'Liver' vs 'Gall Bladder'
+Excluding 28 cells/samples for this comparison!
+
+Proceed with cells/samples: 
+       Liver Gall Bladder 
+           2            2 
+
+Filtering...
+
+Retain 53234 of 78589 features.
+Removed 25355 features.
+
+Performing statistical tests...
+
+* Calculating mean gene expression.. 
+
+* Estimating common precision.. 
+
+! Using common_precision = 4.7973 as prec_init !
+
+* Estimating genewise precision.. 
+
+! Using loess fit as a shrinkage factor !
+
+* Fitting the DM model.. 
+
+   Using the one way approach. 
+
+* Fitting the BB model.. 
+
+   Using the one way approach. 
+
+* Fitting the DM model.. 
+
+   Using the one way approach. 
+
+* Calculating likelihood ratio statistics.. 
+
+* Fitting the BB model.. 
+
+   Using the one way approach. 
+
+* Calculating likelihood ratio statistics.. 
+
+Posthoc filtered 24390 features.
+The returned adjusted p-values are based on a stage-wise testing approach and are only valid for the provided target OFDR level of 5%. If a different target OFDR level is of interest,the entire adjustment should be re-run. 
+
+Found 806 significant genes with 385 significant transcripts (OFDR: 0.05)
+Using tx2gene columns:
+	transcript_id ---> 'feature_id'
+	gene_id ---> 'gene_id'
+
+Comparing in 'group': 'Liver' vs 'Stomach'
+Excluding 28 cells/samples for this comparison!
+
+Proceed with cells/samples: 
+  Liver Stomach 
+      2       2 
+
+Filtering...
+
+Retain 52056 of 78416 features.
+Removed 26360 features.
+
+Performing statistical tests...
+
+* Calculating mean gene expression.. 
+
+* Estimating common precision.. 
+
+! Using common_precision = 4.7973 as prec_init !
+
+* Estimating genewise precision.. 
+
+! Using loess fit as a shrinkage factor !
+
+* Fitting the DM model.. 
+
+   Using the one way approach. 
+
+* Fitting the BB model.. 
+
+   Using the one way approach. 
+
+* Fitting the DM model.. 
+
+   Using the one way approach. 
+
+* Calculating likelihood ratio statistics.. 
+
+* Fitting the BB model.. 
+
+   Using the one way approach. 
+
+* Calculating likelihood ratio statistics.. 
+
+Posthoc filtered 24570 features.
+The returned adjusted p-values are based on a stage-wise testing approach and are only valid for the provided target OFDR level of 5%. If a different target OFDR level is of interest,the entire adjustment should be re-run. 
+
+Found 268 significant genes with 105 significant transcripts (OFDR: 0.05)
+Using tx2gene columns:
+	transcript_id ---> 'feature_id'
+	gene_id ---> 'gene_id'
+
+Comparing in 'group': 'Liver' vs 'Small Intestine'
+Excluding 28 cells/samples for this comparison!
+
+Proceed with cells/samples: 
+          Liver Small Intestine 
+              2               2 
+
+Filtering...
+
+Retain 52702 of 77911 features.
+Removed 25209 features.
+
+Performing statistical tests...
+
+* Calculating mean gene expression.. 
+
+* Estimating common precision.. 
+
+! Using common_precision = 4.7973 as prec_init !
+
+* Estimating genewise precision.. 
+
+! Using loess fit as a shrinkage factor !
+
+* Fitting the DM model.. 
+
+   Using the one way approach. 
+
+* Fitting the BB model.. 
+
+   Using the one way approach. 
+
+* Fitting the DM model.. 
+
+   Using the one way approach. 
+
+* Calculating likelihood ratio statistics.. 
+
+* Fitting the BB model.. 
+
+   Using the one way approach. 
+
+* Calculating likelihood ratio statistics.. 
+
+Posthoc filtered 24064 features.
+The returned adjusted p-values are based on a stage-wise testing approach and are only valid for the provided target OFDR level of 5%. If a different target OFDR level is of interest,the entire adjustment should be re-run. 
+
+Found 334 significant genes with 127 significant transcripts (OFDR: 0.05)
+Using tx2gene columns:
+	transcript_id ---> 'feature_id'
+	gene_id ---> 'gene_id'
+
+Comparing in 'group': 'Spleen' vs 'Kidney_medulla'
+Excluding 28 cells/samples for this comparison!
+
+Proceed with cells/samples: 
+        Spleen Kidney_medulla 
+             2              2 
+
+Filtering...
+
+Retain 48924 of 79451 features.
+Removed 30527 features.
+
+Performing statistical tests...
+
+* Calculating mean gene expression.. 
+
+* Estimating common precision.. 
+
+! Using common_precision = 4.7973 as prec_init !
+
+* Estimating genewise precision.. 
+
+! Using loess fit as a shrinkage factor !
+
+* Fitting the DM model.. 
+
+   Using the one way approach. 
+
+* Fitting the BB model.. 
+
+   Using the one way approach. 
+
+* Fitting the DM model.. 
+
+   Using the one way approach. 
+
+* Calculating likelihood ratio statistics.. 
+
+* Fitting the BB model.. 
+
+   Using the one way approach. 
+
+* Calculating likelihood ratio statistics.. 
+
+Posthoc filtered 27323 features.
+The returned adjusted p-values are based on a stage-wise testing approach and are only valid for the provided target OFDR level of 5%. If a different target OFDR level is of interest,the entire adjustment should be re-run. 
+
+Found 353 significant genes with 175 significant transcripts (OFDR: 0.05)
+Using tx2gene columns:
+	transcript_id ---> 'feature_id'
+	gene_id ---> 'gene_id'
+
+Comparing in 'group': 'Spleen' vs 'Kidney_cortex'
+Excluding 28 cells/samples for this comparison!
+
+Proceed with cells/samples: 
+       Spleen Kidney_cortex 
+            2             2 
+
+Filtering...
+
+Retain 48515 of 78079 features.
+Removed 29564 features.
+
+Performing statistical tests...
+
+* Calculating mean gene expression.. 
+
+* Estimating common precision.. 
+
+! Using common_precision = 4.7973 as prec_init !
+
+* Estimating genewise precision.. 
+
+! Using loess fit as a shrinkage factor !
+
+* Fitting the DM model.. 
+
+   Using the one way approach. 
+
+* Fitting the BB model.. 
+
+   Using the one way approach. 
+
+* Fitting the DM model.. 
+
+   Using the one way approach. 
+
+* Calculating likelihood ratio statistics.. 
+
+* Fitting the BB model.. 
+
+   Using the one way approach. 
+
+* Calculating likelihood ratio statistics.. 
+
+Posthoc filtered 25076 features.
+The returned adjusted p-values are based on a stage-wise testing approach and are only valid for the provided target OFDR level of 5%. If a different target OFDR level is of interest,the entire adjustment should be re-run. 
+
+Found 331 significant genes with 177 significant transcripts (OFDR: 0.05)
+Using tx2gene columns:
+	transcript_id ---> 'feature_id'
+	gene_id ---> 'gene_id'
+
+Comparing in 'group': 'Spleen' vs 'Lung'
+Excluding 26 cells/samples for this comparison!
+
+Proceed with cells/samples: 
+Spleen   Lung 
+     2      4 
+
+Filtering...
+
+Retain 54858 of 84130 features.
+Removed 29272 features.
+
+Performing statistical tests...
+
+* Calculating mean gene expression.. 
+
+* Estimating common precision.. 
+
+! Using common_precision = 4.7973 as prec_init !
+
+* Estimating genewise precision.. 
+
+! Using loess fit as a shrinkage factor !
+
+* Fitting the DM model.. 
+
+   Using the one way approach. 
+
+* Fitting the BB model.. 
+
+   Using the one way approach. 
+
+* Fitting the DM model.. 
+
+   Using the one way approach. 
+
+* Calculating likelihood ratio statistics.. 
+
+* Fitting the BB model.. 
+
+   Using the one way approach. 
+
+* Calculating likelihood ratio statistics.. 
+
+Posthoc filtered 32289 features.
+The returned adjusted p-values are based on a stage-wise testing approach and are only valid for the provided target OFDR level of 5%. If a different target OFDR level is of interest,the entire adjustment should be re-run. 
+
+Found 280 significant genes with 166 significant transcripts (OFDR: 0.05)
+Using tx2gene columns:
+	transcript_id ---> 'feature_id'
+	gene_id ---> 'gene_id'
+
+Comparing in 'group': 'Spleen' vs 'Ventricle'
+Excluding 26 cells/samples for this comparison!
+
+Proceed with cells/samples: 
+   Spleen Ventricle 
+        2         4 
+
+Filtering...
+
+Retain 49802 of 78095 features.
+Removed 28293 features.
+
+Performing statistical tests...
+
+* Calculating mean gene expression.. 
+
+* Estimating common precision.. 
+
+! Using common_precision = 4.7973 as prec_init !
+
+* Estimating genewise precision.. 
+
+! Using loess fit as a shrinkage factor !
+
+* Fitting the DM model.. 
+
+   Using the one way approach. 
+
+* Fitting the BB model.. 
+
+   Using the one way approach. 
+
+* Fitting the DM model.. 
+
+   Using the one way approach. 
+
+* Calculating likelihood ratio statistics.. 
+
+* Fitting the BB model.. 
+
+   Using the one way approach. 
+
+* Calculating likelihood ratio statistics.. 
+
+Posthoc filtered 23517 features.
+The returned adjusted p-values are based on a stage-wise testing approach and are only valid for the provided target OFDR level of 5%. If a different target OFDR level is of interest,the entire adjustment should be re-run. 
+
+Found 662 significant genes with 462 significant transcripts (OFDR: 0.05)
+Using tx2gene columns:
+	transcript_id ---> 'feature_id'
+	gene_id ---> 'gene_id'
+
+Comparing in 'group': 'Spleen' vs 'Atrium'
+Excluding 26 cells/samples for this comparison!
+
+Proceed with cells/samples: 
+Spleen Atrium 
+     2      4 
+
+Filtering...
+
+Retain 50279 of 78918 features.
+Removed 28639 features.
+
+Performing statistical tests...
+
+* Calculating mean gene expression.. 
+
+* Estimating common precision.. 
+
+! Using common_precision = 4.7973 as prec_init !
+
+* Estimating genewise precision.. 
+
+! Using loess fit as a shrinkage factor !
+
+* Fitting the DM model.. 
+
+   Using the one way approach. 
+
+* Fitting the BB model.. 
+
+   Using the one way approach. 
+
+* Fitting the DM model.. 
+
+   Using the one way approach. 
+
+* Calculating likelihood ratio statistics.. 
+
+* Fitting the BB model.. 
+
+   Using the one way approach. 
+
+* Calculating likelihood ratio statistics.. 
+
+Posthoc filtered 24578 features.
+The returned adjusted p-values are based on a stage-wise testing approach and are only valid for the provided target OFDR level of 5%. If a different target OFDR level is of interest,the entire adjustment should be re-run. 
+
+Found 634 significant genes with 461 significant transcripts (OFDR: 0.05)
+Using tx2gene columns:
+	transcript_id ---> 'feature_id'
+	gene_id ---> 'gene_id'
+
+Comparing in 'group': 'Spleen' vs 'Gall Bladder'
+Excluding 28 cells/samples for this comparison!
+
+Proceed with cells/samples: 
+      Spleen Gall Bladder 
+           2            2 
+
+Filtering...
+
+Retain 54084 of 79997 features.
+Removed 25913 features.
+
+Performing statistical tests...
+
+* Calculating mean gene expression.. 
+
+* Estimating common precision.. 
+
+! Using common_precision = 4.7973 as prec_init !
+
+* Estimating genewise precision.. 
+
+! Using loess fit as a shrinkage factor !
+
+* Fitting the DM model.. 
+
+   Using the one way approach. 
+
+* Fitting the BB model.. 
+
+   Using the one way approach. 
+
+* Fitting the DM model.. 
+
+   Using the one way approach. 
+
+* Calculating likelihood ratio statistics.. 
+
+* Fitting the BB model.. 
+
+   Using the one way approach. 
+
+* Calculating likelihood ratio statistics.. 
+
+Posthoc filtered 27450 features.
+The returned adjusted p-values are based on a stage-wise testing approach and are only valid for the provided target OFDR level of 5%. If a different target OFDR level is of interest,the entire adjustment should be re-run. 
+
+Found 912 significant genes with 534 significant transcripts (OFDR: 0.05)
+Using tx2gene columns:
+	transcript_id ---> 'feature_id'
+	gene_id ---> 'gene_id'
+
+Comparing in 'group': 'Spleen' vs 'Stomach'
+Excluding 28 cells/samples for this comparison!
+
+Proceed with cells/samples: 
+ Spleen Stomach 
+      2       2 
+
+Filtering...
+
+Retain 52710 of 79549 features.
+Removed 26839 features.
+
+Performing statistical tests...
+
+* Calculating mean gene expression.. 
+
+* Estimating common precision.. 
+
+! Using common_precision = 4.7973 as prec_init !
+
+* Estimating genewise precision.. 
+
+! Using loess fit as a shrinkage factor !
+
+* Fitting the DM model.. 
+
+   Using the one way approach. 
+
+* Fitting the BB model.. 
+
+   Using the one way approach. 
+
+* Fitting the DM model.. 
+
+   Using the one way approach. 
+
+* Calculating likelihood ratio statistics.. 
+
+* Fitting the BB model.. 
+
+   Using the one way approach. 
+
+* Calculating likelihood ratio statistics.. 
+
+Posthoc filtered 27887 features.
+The returned adjusted p-values are based on a stage-wise testing approach and are only valid for the provided target OFDR level of 5%. If a different target OFDR level is of interest,the entire adjustment should be re-run. 
+
+Found 128 significant genes with 57 significant transcripts (OFDR: 0.05)
+Using tx2gene columns:
+	transcript_id ---> 'feature_id'
+	gene_id ---> 'gene_id'
+
+Comparing in 'group': 'Spleen' vs 'Small Intestine'
+Excluding 28 cells/samples for this comparison!
+
+Proceed with cells/samples: 
+         Spleen Small Intestine 
+              2               2 
+
+Filtering...
+
+Retain 53540 of 79483 features.
+Removed 25943 features.
+
+Performing statistical tests...
+
+* Calculating mean gene expression.. 
+
+* Estimating common precision.. 
+
+! Using common_precision = 4.7973 as prec_init !
+
+* Estimating genewise precision.. 
+
+! Using loess fit as a shrinkage factor !
+
+* Fitting the DM model.. 
+
+   Using the one way approach. 
+
+* Fitting the BB model.. 
+
+   Using the one way approach. 
+
+* Fitting the DM model.. 
+
+   Using the one way approach. 
+
+* Calculating likelihood ratio statistics.. 
+
+* Fitting the BB model.. 
+
+   Using the one way approach. 
+
+* Calculating likelihood ratio statistics.. 
+
+Posthoc filtered 27390 features.
+The returned adjusted p-values are based on a stage-wise testing approach and are only valid for the provided target OFDR level of 5%. If a different target OFDR level is of interest,the entire adjustment should be re-run. 
+
+Found 245 significant genes with 103 significant transcripts (OFDR: 0.05)
+Using tx2gene columns:
+	transcript_id ---> 'feature_id'
+	gene_id ---> 'gene_id'
+
+Comparing in 'group': 'Kidney_medulla' vs 'Kidney_cortex'
+Excluding 28 cells/samples for this comparison!
+
+Proceed with cells/samples: 
+Kidney_medulla  Kidney_cortex 
+             2              2 
+
+Filtering...
+
+Retain 45262 of 75419 features.
+Removed 30157 features.
+
+Performing statistical tests...
+
+* Calculating mean gene expression.. 
+
+* Estimating common precision.. 
+
+! Using common_precision = 4.7973 as prec_init !
+
+* Estimating genewise precision.. 
+
+! Using loess fit as a shrinkage factor !
+
+* Fitting the DM model.. 
+
+   Using the one way approach. 
+
+* Fitting the BB model.. 
+
+   Using the one way approach. 
+
+* Fitting the DM model.. 
+
+   Using the one way approach. 
+
+* Calculating likelihood ratio statistics.. 
+
+* Fitting the BB model.. 
+
+   Using the one way approach. 
+
+* Calculating likelihood ratio statistics.. 
+
+Posthoc filtered 24212 features.
+The returned adjusted p-values are based on a stage-wise testing approach and are only valid for the provided target OFDR level of 5%. If a different target OFDR level is of interest,the entire adjustment should be re-run. 
+
+Found 42 significant genes with 20 significant transcripts (OFDR: 0.05)
+Using tx2gene columns:
+	transcript_id ---> 'feature_id'
+	gene_id ---> 'gene_id'
+
+Comparing in 'group': 'Kidney_medulla' vs 'Lung'
+Excluding 26 cells/samples for this comparison!
+
+Proceed with cells/samples: 
+Kidney_medulla           Lung 
+             2              4 
+
+Filtering...
+
+Retain 55463 of 85311 features.
+Removed 29848 features.
+
+Performing statistical tests...
+
+* Calculating mean gene expression.. 
+
+* Estimating common precision.. 
+
+! Using common_precision = 4.7973 as prec_init !
+
+* Estimating genewise precision.. 
+
+! Using loess fit as a shrinkage factor !
+
+* Fitting the DM model.. 
+
+   Using the one way approach. 
+
+* Fitting the BB model.. 
+
+   Using the one way approach. 
+
+* Fitting the DM model.. 
+
+   Using the one way approach. 
+
+* Calculating likelihood ratio statistics.. 
+
+* Fitting the BB model.. 
+
+   Using the one way approach. 
+
+* Calculating likelihood ratio statistics.. 
+
+Posthoc filtered 31910 features.
+The returned adjusted p-values are based on a stage-wise testing approach and are only valid for the provided target OFDR level of 5%. If a different target OFDR level is of interest,the entire adjustment should be re-run. 
+
+Found 387 significant genes with 260 significant transcripts (OFDR: 0.05)
+Using tx2gene columns:
+	transcript_id ---> 'feature_id'
+	gene_id ---> 'gene_id'
+
+Comparing in 'group': 'Kidney_medulla' vs 'Ventricle'
+Excluding 26 cells/samples for this comparison!
+
+Proceed with cells/samples: 
+Kidney_medulla      Ventricle 
+             2              4 
+
+Filtering...
+
+Retain 48777 of 78229 features.
+Removed 29452 features.
+
+Performing statistical tests...
+
+* Calculating mean gene expression.. 
+
+* Estimating common precision.. 
+
+! Using common_precision = 4.7973 as prec_init !
+
+* Estimating genewise precision.. 
+
+! Using loess fit as a shrinkage factor !
+
+* Fitting the DM model.. 
+
+   Using the one way approach. 
+
+* Fitting the BB model.. 
+
+   Using the one way approach. 
+
+* Fitting the DM model.. 
+
+   Using the one way approach. 
+
+* Calculating likelihood ratio statistics.. 
+
+* Fitting the BB model.. 
+
+   Using the one way approach. 
+
+* Calculating likelihood ratio statistics.. 
+
+Posthoc filtered 22814 features.
+The returned adjusted p-values are based on a stage-wise testing approach and are only valid for the provided target OFDR level of 5%. If a different target OFDR level is of interest,the entire adjustment should be re-run. 
+
+Found 496 significant genes with 346 significant transcripts (OFDR: 0.05)
+Using tx2gene columns:
+	transcript_id ---> 'feature_id'
+	gene_id ---> 'gene_id'
+
+Comparing in 'group': 'Kidney_medulla' vs 'Atrium'
+Excluding 26 cells/samples for this comparison!
+
+Proceed with cells/samples: 
+Kidney_medulla         Atrium 
+             2              4 
+
+Filtering...
+
+Retain 49394 of 79128 features.
+Removed 29734 features.
+
+Performing statistical tests...
+
+* Calculating mean gene expression.. 
+
+* Estimating common precision.. 
+
+! Using common_precision = 4.7973 as prec_init !
+
+* Estimating genewise precision.. 
+
+! Using loess fit as a shrinkage factor !
+
+* Fitting the DM model.. 
+
+   Using the one way approach. 
+
+* Fitting the BB model.. 
+
+   Using the one way approach. 
+
+* Fitting the DM model.. 
+
+   Using the one way approach. 
+
+* Calculating likelihood ratio statistics.. 
+
+* Fitting the BB model.. 
+
+   Using the one way approach. 
+
+* Calculating likelihood ratio statistics.. 
+
+Posthoc filtered 23985 features.
+The returned adjusted p-values are based on a stage-wise testing approach and are only valid for the provided target OFDR level of 5%. If a different target OFDR level is of interest,the entire adjustment should be re-run. 
+
+Found 499 significant genes with 365 significant transcripts (OFDR: 0.05)
+Using tx2gene columns:
+	transcript_id ---> 'feature_id'
+	gene_id ---> 'gene_id'
+
+Comparing in 'group': 'Kidney_medulla' vs 'Gall Bladder'
+Excluding 28 cells/samples for this comparison!
+
+Proceed with cells/samples: 
+Kidney_medulla   Gall Bladder 
+             2              2 
+
+Filtering...
+
+Retain 54666 of 80856 features.
+Removed 26190 features.
+
+Performing statistical tests...
+
+* Calculating mean gene expression.. 
+
+* Estimating common precision.. 
+
+! Using common_precision = 4.7973 as prec_init !
+
+* Estimating genewise precision.. 
+
+! Using loess fit as a shrinkage factor !
+
+* Fitting the DM model.. 
+
+   Using the one way approach. 
+
+* Fitting the BB model.. 
+
+   Using the one way approach. 
+
+* Fitting the DM model.. 
+
+   Using the one way approach. 
+
+* Calculating likelihood ratio statistics.. 
+
+* Fitting the BB model.. 
+
+   Using the one way approach. 
+
+* Calculating likelihood ratio statistics.. 
+
+Posthoc filtered 26969 features.
+The returned adjusted p-values are based on a stage-wise testing approach and are only valid for the provided target OFDR level of 5%. If a different target OFDR level is of interest,the entire adjustment should be re-run. 
+
+Found 1188 significant genes with 659 significant transcripts (OFDR: 0.05)
+Using tx2gene columns:
+	transcript_id ---> 'feature_id'
+	gene_id ---> 'gene_id'
+
+Comparing in 'group': 'Kidney_medulla' vs 'Stomach'
+Excluding 28 cells/samples for this comparison!
+
+Proceed with cells/samples: 
+Kidney_medulla        Stomach 
+             2              2 
+
+Filtering...
+
+Retain 53006 of 80260 features.
+Removed 27254 features.
+
+Performing statistical tests...
+
+* Calculating mean gene expression.. 
+
+* Estimating common precision.. 
+
+! Using common_precision = 4.7973 as prec_init !
+
+* Estimating genewise precision.. 
+
+! Using loess fit as a shrinkage factor !
+
+* Fitting the DM model.. 
+
+   Using the one way approach. 
+
+* Fitting the BB model.. 
+
+   Using the one way approach. 
+
+* Fitting the DM model.. 
+
+   Using the one way approach. 
+
+* Calculating likelihood ratio statistics.. 
+
+* Fitting the BB model.. 
+
+   Using the one way approach. 
+
+* Calculating likelihood ratio statistics.. 
+
+Posthoc filtered 27576 features.
+The returned adjusted p-values are based on a stage-wise testing approach and are only valid for the provided target OFDR level of 5%. If a different target OFDR level is of interest,the entire adjustment should be re-run. 
+
+Found 186 significant genes with 63 significant transcripts (OFDR: 0.05)
+Using tx2gene columns:
+	transcript_id ---> 'feature_id'
+	gene_id ---> 'gene_id'
+
+Comparing in 'group': 'Kidney_medulla' vs 'Small Intestine'
+Excluding 28 cells/samples for this comparison!
+
+Proceed with cells/samples: 
+ Kidney_medulla Small Intestine 
+              2               2 
+
+Filtering...
+
+Retain 54124 of 80261 features.
+Removed 26137 features.
+
+Performing statistical tests...
+
+* Calculating mean gene expression.. 
+
+* Estimating common precision.. 
+
+! Using common_precision = 4.7973 as prec_init !
+
+* Estimating genewise precision.. 
+
+! Using loess fit as a shrinkage factor !
+
+* Fitting the DM model.. 
+
+   Using the one way approach. 
+
+* Fitting the BB model.. 
+
+   Using the one way approach. 
+
+* Fitting the DM model.. 
+
+   Using the one way approach. 
+
+* Calculating likelihood ratio statistics.. 
+
+* Fitting the BB model.. 
+
+   Using the one way approach. 
+
+* Calculating likelihood ratio statistics.. 
+
+Posthoc filtered 26950 features.
+The returned adjusted p-values are based on a stage-wise testing approach and are only valid for the provided target OFDR level of 5%. If a different target OFDR level is of interest,the entire adjustment should be re-run. 
+
+Found 311 significant genes with 117 significant transcripts (OFDR: 0.05)
+Using tx2gene columns:
+	transcript_id ---> 'feature_id'
+	gene_id ---> 'gene_id'
+
+Comparing in 'group': 'Kidney_cortex' vs 'Lung'
+Excluding 26 cells/samples for this comparison!
+
+Proceed with cells/samples: 
+Kidney_cortex          Lung 
+            2             4 
+
+Filtering...
+
+Retain 55512 of 84756 features.
+Removed 29244 features.
+
+Performing statistical tests...
+
+* Calculating mean gene expression.. 
+
+* Estimating common precision.. 
+
+! Using common_precision = 4.7973 as prec_init !
+
+* Estimating genewise precision.. 
+
+! Using loess fit as a shrinkage factor !
+
+* Fitting the DM model.. 
+
+   Using the one way approach. 
+
+* Fitting the BB model.. 
+
+   Using the one way approach. 
+
+* Fitting the DM model.. 
+
+   Using the one way approach. 
+
+* Calculating likelihood ratio statistics.. 
+
+* Fitting the BB model.. 
+
+   Using the one way approach. 
+
+* Calculating likelihood ratio statistics.. 
+
+Posthoc filtered 30393 features.
+The returned adjusted p-values are based on a stage-wise testing approach and are only valid for the provided target OFDR level of 5%. If a different target OFDR level is of interest,the entire adjustment should be re-run. 
+
+Found 497 significant genes with 357 significant transcripts (OFDR: 0.05)
+Using tx2gene columns:
+	transcript_id ---> 'feature_id'
+	gene_id ---> 'gene_id'
+
+Comparing in 'group': 'Kidney_cortex' vs 'Ventricle'
+Excluding 26 cells/samples for this comparison!
+
+Proceed with cells/samples: 
+Kidney_cortex     Ventricle 
+            2             4 
+
+Filtering...
+
+Retain 47896 of 76046 features.
+Removed 28150 features.
+
+Performing statistical tests...
+
+* Calculating mean gene expression.. 
+
+* Estimating common precision.. 
+
+! Using common_precision = 4.7973 as prec_init !
+
+* Estimating genewise precision.. 
+
+! Using loess fit as a shrinkage factor !
+
+* Fitting the DM model.. 
+
+   Using the one way approach. 
+
+* Fitting the BB model.. 
+
+   Using the one way approach. 
+
+* Fitting the DM model.. 
+
+   Using the one way approach. 
+
+* Calculating likelihood ratio statistics.. 
+
+* Fitting the BB model.. 
+
+   Using the one way approach. 
+
+* Calculating likelihood ratio statistics.. 
+
+Posthoc filtered 21385 features.
+The returned adjusted p-values are based on a stage-wise testing approach and are only valid for the provided target OFDR level of 5%. If a different target OFDR level is of interest,the entire adjustment should be re-run. 
+
+Found 478 significant genes with 366 significant transcripts (OFDR: 0.05)
+Using tx2gene columns:
+	transcript_id ---> 'feature_id'
+	gene_id ---> 'gene_id'
+
+Comparing in 'group': 'Kidney_cortex' vs 'Atrium'
+Excluding 26 cells/samples for this comparison!
+
+Proceed with cells/samples: 
+Kidney_cortex        Atrium 
+            2             4 
+
+Filtering...
+
+Retain 48702 of 77337 features.
+Removed 28635 features.
+
+Performing statistical tests...
+
+* Calculating mean gene expression.. 
+
+* Estimating common precision.. 
+
+! Using common_precision = 4.7973 as prec_init !
+
+* Estimating genewise precision.. 
+
+! Using loess fit as a shrinkage factor !
+
+* Fitting the DM model.. 
+
+   Using the one way approach. 
+
+* Fitting the BB model.. 
+
+   Using the one way approach. 
+
+* Fitting the DM model.. 
+
+   Using the one way approach. 
+
+* Calculating likelihood ratio statistics.. 
+
+* Fitting the BB model.. 
+
+   Using the one way approach. 
+
+* Calculating likelihood ratio statistics.. 
+
+Posthoc filtered 22473 features.
+The returned adjusted p-values are based on a stage-wise testing approach and are only valid for the provided target OFDR level of 5%. If a different target OFDR level is of interest,the entire adjustment should be re-run. 
+
+Found 507 significant genes with 383 significant transcripts (OFDR: 0.05)
+Using tx2gene columns:
+	transcript_id ---> 'feature_id'
+	gene_id ---> 'gene_id'
+
+Comparing in 'group': 'Kidney_cortex' vs 'Gall Bladder'
+Excluding 28 cells/samples for this comparison!
+
+Proceed with cells/samples: 
+Kidney_cortex  Gall Bladder 
+            2             2 
+
+Filtering...
+
+Retain 54274 of 79725 features.
+Removed 25451 features.
+
+Performing statistical tests...
+
+* Calculating mean gene expression.. 
+
+* Estimating common precision.. 
+
+! Using common_precision = 4.7973 as prec_init !
+
+* Estimating genewise precision.. 
+
+! Using loess fit as a shrinkage factor !
+
+* Fitting the DM model.. 
+
+   Using the one way approach. 
+
+* Fitting the BB model.. 
+
+   Using the one way approach. 
+
+* Fitting the DM model.. 
+
+   Using the one way approach. 
+
+* Calculating likelihood ratio statistics.. 
+
+* Fitting the BB model.. 
+
+   Using the one way approach. 
+
+* Calculating likelihood ratio statistics.. 
+
+Posthoc filtered 24997 features.
+The returned adjusted p-values are based on a stage-wise testing approach and are only valid for the provided target OFDR level of 5%. If a different target OFDR level is of interest,the entire adjustment should be re-run. 
+
+Found 1011 significant genes with 542 significant transcripts (OFDR: 0.05)
+Using tx2gene columns:
+	transcript_id ---> 'feature_id'
+	gene_id ---> 'gene_id'
+
+Comparing in 'group': 'Kidney_cortex' vs 'Stomach'
+Excluding 28 cells/samples for this comparison!
+
+Proceed with cells/samples: 
+Kidney_cortex       Stomach 
+            2             2 
+
+Filtering...
+
+Retain 52570 of 79021 features.
+Removed 26451 features.
+
+Performing statistical tests...
+
+* Calculating mean gene expression.. 
+
+* Estimating common precision.. 
+
+! Using common_precision = 4.7973 as prec_init !
+
+* Estimating genewise precision.. 
+
+! Using loess fit as a shrinkage factor !
+
+* Fitting the DM model.. 
+
+   Using the one way approach. 
+
+* Fitting the BB model.. 
+
+   Using the one way approach. 
+
+* Fitting the DM model.. 
+
+   Using the one way approach. 
+
+* Calculating likelihood ratio statistics.. 
+
+* Fitting the BB model.. 
+
+   Using the one way approach. 
+
+* Calculating likelihood ratio statistics.. 
+
+Posthoc filtered 25618 features.
+The returned adjusted p-values are based on a stage-wise testing approach and are only valid for the provided target OFDR level of 5%. If a different target OFDR level is of interest,the entire adjustment should be re-run. 
+
+Found 147 significant genes with 53 significant transcripts (OFDR: 0.05)
+Using tx2gene columns:
+	transcript_id ---> 'feature_id'
+	gene_id ---> 'gene_id'
+
+Comparing in 'group': 'Kidney_cortex' vs 'Small Intestine'
+Excluding 28 cells/samples for this comparison!
+
+Proceed with cells/samples: 
+  Kidney_cortex Small Intestine 
+              2               2 
+
+Filtering...
+
+Retain 53367 of 78539 features.
+Removed 25172 features.
+
+Performing statistical tests...
+
+* Calculating mean gene expression.. 
+
+* Estimating common precision.. 
+
+! Using common_precision = 4.7973 as prec_init !
+
+* Estimating genewise precision.. 
+
+! Using loess fit as a shrinkage factor !
+
+* Fitting the DM model.. 
+
+   Using the one way approach. 
+
+* Fitting the BB model.. 
+
+   Using the one way approach. 
+
+* Fitting the DM model.. 
+
+   Using the one way approach. 
+
+* Calculating likelihood ratio statistics.. 
+
+* Fitting the BB model.. 
+
+   Using the one way approach. 
+
+* Calculating likelihood ratio statistics.. 
+
+Posthoc filtered 24888 features.
+The returned adjusted p-values are based on a stage-wise testing approach and are only valid for the provided target OFDR level of 5%. If a different target OFDR level is of interest,the entire adjustment should be re-run. 
+
+Found 220 significant genes with 94 significant transcripts (OFDR: 0.05)
+Using tx2gene columns:
+	transcript_id ---> 'feature_id'
+	gene_id ---> 'gene_id'
+
+Comparing in 'group': 'Lung' vs 'Ventricle'
+Excluding 24 cells/samples for this comparison!
+
+Proceed with cells/samples: 
+     Lung Ventricle 
+        4         4 
+
+Filtering...
+
+Retain 43048 of 84935 features.
+Removed 41887 features.
+
+Performing statistical tests...
+
+* Calculating mean gene expression.. 
+
+* Estimating common precision.. 
+
+! Using common_precision = 217.906 as prec_init !
+
+* Estimating genewise precision.. 
+
+! Using loess fit as a shrinkage factor !
+
+* Fitting the DM model.. 
+
+   Using the one way approach. 
+
+* Fitting the BB model.. 
+
+   Using the one way approach. 
+
+* Fitting the DM model.. 
+
+   Using the one way approach. 
+
+* Calculating likelihood ratio statistics.. 
+
+* Fitting the BB model.. 
+
+   Using the one way approach. 
+
+* Calculating likelihood ratio statistics.. 
+
+Posthoc filtered 17364 features.
+The returned adjusted p-values are based on a stage-wise testing approach and are only valid for the provided target OFDR level of 5%. If a different target OFDR level is of interest,the entire adjustment should be re-run. 
+
+Found 1833 significant genes with 1647 significant transcripts (OFDR: 0.05)
+Using tx2gene columns:
+	transcript_id ---> 'feature_id'
+	gene_id ---> 'gene_id'
+
+Comparing in 'group': 'Lung' vs 'Atrium'
+Excluding 24 cells/samples for this comparison!
+
+Proceed with cells/samples: 
+  Lung Atrium 
+     4      4 
+
+Filtering...
+
+Retain 43392 of 85251 features.
+Removed 41859 features.
+
+Performing statistical tests...
+
+* Calculating mean gene expression.. 
+
+* Estimating common precision.. 
+
+! Using common_precision = 4.7973 as prec_init !
+
+* Estimating genewise precision.. 
+
+! Using loess fit as a shrinkage factor !
+
+* Fitting the DM model.. 
+
+   Using the one way approach. 
+
+* Fitting the BB model.. 
+
+   Using the one way approach. 
+
+* Fitting the DM model.. 
+
+   Using the one way approach. 
+
+* Calculating likelihood ratio statistics.. 
+
+* Fitting the BB model.. 
+
+   Using the one way approach. 
+
+* Calculating likelihood ratio statistics.. 
+
+Posthoc filtered 18328 features.
+The returned adjusted p-values are based on a stage-wise testing approach and are only valid for the provided target OFDR level of 5%. If a different target OFDR level is of interest,the entire adjustment should be re-run. 
+
+Found 1532 significant genes with 1332 significant transcripts (OFDR: 0.05)
+Using tx2gene columns:
+	transcript_id ---> 'feature_id'
+	gene_id ---> 'gene_id'
+
+Comparing in 'group': 'Lung' vs 'Gall Bladder'
+Excluding 26 cells/samples for this comparison!
+
+Proceed with cells/samples: 
+        Lung Gall Bladder 
+           4            2 
+
+Filtering...
+
+Retain 59066 of 85455 features.
+Removed 26389 features.
+
+Performing statistical tests...
+
+* Calculating mean gene expression.. 
+
+* Estimating common precision.. 
+
+! Using common_precision = 4.7973 as prec_init !
+
+* Estimating genewise precision.. 
+
+! Using loess fit as a shrinkage factor !
+
+* Fitting the DM model.. 
+
+   Using the one way approach. 
+
+* Fitting the BB model.. 
+
+   Using the one way approach. 
+
+* Fitting the DM model.. 
+
+   Using the one way approach. 
+
+* Calculating likelihood ratio statistics.. 
+
+* Fitting the BB model.. 
+
+   Using the one way approach. 
+
+* Calculating likelihood ratio statistics.. 
+
+Posthoc filtered 31681 features.
+The returned adjusted p-values are based on a stage-wise testing approach and are only valid for the provided target OFDR level of 5%. If a different target OFDR level is of interest,the entire adjustment should be re-run. 
+
+Found 1374 significant genes with 1091 significant transcripts (OFDR: 0.05)
+Using tx2gene columns:
+	transcript_id ---> 'feature_id'
+	gene_id ---> 'gene_id'
+
+Comparing in 'group': 'Lung' vs 'Stomach'
+Excluding 26 cells/samples for this comparison!
+
+Proceed with cells/samples: 
+   Lung Stomach 
+      4       2 
+
+Filtering...
+
+Retain 57945 of 85110 features.
+Removed 27165 features.
+
+Performing statistical tests...
+
+* Calculating mean gene expression.. 
+
+* Estimating common precision.. 
+
+! Using common_precision = 4.7973 as prec_init !
+
+* Estimating genewise precision.. 
+
+! Using loess fit as a shrinkage factor !
+
+* Fitting the DM model.. 
+
+   Using the one way approach. 
+
+* Fitting the BB model.. 
+
+   Using the one way approach. 
+
+* Fitting the DM model.. 
+
+   Using the one way approach. 
+
+* Calculating likelihood ratio statistics.. 
+
+* Fitting the BB model.. 
+
+   Using the one way approach. 
+
+* Calculating likelihood ratio statistics.. 
+
+Posthoc filtered 32485 features.
+The returned adjusted p-values are based on a stage-wise testing approach and are only valid for the provided target OFDR level of 5%. If a different target OFDR level is of interest,the entire adjustment should be re-run. 
+
+Found 256 significant genes with 131 significant transcripts (OFDR: 0.05)
+Using tx2gene columns:
+	transcript_id ---> 'feature_id'
+	gene_id ---> 'gene_id'
+
+Comparing in 'group': 'Lung' vs 'Small Intestine'
+Excluding 26 cells/samples for this comparison!
+
+Proceed with cells/samples: 
+           Lung Small Intestine 
+              4               2 
+
+Filtering...
+
+Retain 58966 of 85289 features.
+Removed 26323 features.
+
+Performing statistical tests...
+
+* Calculating mean gene expression.. 
+
+* Estimating common precision.. 
+
+! Using common_precision = 4.7973 as prec_init !
+
+* Estimating genewise precision.. 
+
+! Using loess fit as a shrinkage factor !
+
+* Fitting the DM model.. 
+
+   Using the one way approach. 
+
+* Fitting the BB model.. 
+
+   Using the one way approach. 
+
+* Fitting the DM model.. 
+
+   Using the one way approach. 
+
+* Calculating likelihood ratio statistics.. 
+
+* Fitting the BB model.. 
+
+   Using the one way approach. 
+
+* Calculating likelihood ratio statistics.. 
+
+Posthoc filtered 32144 features.
+The returned adjusted p-values are based on a stage-wise testing approach and are only valid for the provided target OFDR level of 5%. If a different target OFDR level is of interest,the entire adjustment should be re-run. 
+
+Found 451 significant genes with 275 significant transcripts (OFDR: 0.05)
+Using tx2gene columns:
+	transcript_id ---> 'feature_id'
+	gene_id ---> 'gene_id'
+
+Comparing in 'group': 'Ventricle' vs 'Atrium'
+Excluding 24 cells/samples for this comparison!
+
+Proceed with cells/samples: 
+Ventricle    Atrium 
+        4         4 
+
+Filtering...
+
+Retain 33660 of 73285 features.
+Removed 39625 features.
+
+Performing statistical tests...
+
+* Calculating mean gene expression.. 
+
+* Estimating common precision.. 
+
+! Using common_precision = 4.7973 as prec_init !
+
+* Estimating genewise precision.. 
+
+! Using loess fit as a shrinkage factor !
+
+* Fitting the DM model.. 
+
+   Using the one way approach. 
+
+* Fitting the BB model.. 
+
+   Using the one way approach. 
+
+* Fitting the DM model.. 
+
+   Using the one way approach. 
+
+* Calculating likelihood ratio statistics.. 
+
+* Fitting the BB model.. 
+
+   Using the one way approach. 
+
+* Calculating likelihood ratio statistics.. 
+
+Posthoc filtered 12594 features.
+The returned adjusted p-values are based on a stage-wise testing approach and are only valid for the provided target OFDR level of 5%. If a different target OFDR level is of interest,the entire adjustment should be re-run. 
+
+Found 87 significant genes with 52 significant transcripts (OFDR: 0.05)
+Using tx2gene columns:
+	transcript_id ---> 'feature_id'
+	gene_id ---> 'gene_id'
+
+Comparing in 'group': 'Ventricle' vs 'Gall Bladder'
+Excluding 26 cells/samples for this comparison!
+
+Proceed with cells/samples: 
+   Ventricle Gall Bladder 
+           4            2 
+
+Filtering...
+
+Retain 55747 of 80381 features.
+Removed 24634 features.
+
+Performing statistical tests...
+
+* Calculating mean gene expression.. 
+
+* Estimating common precision.. 
+
+! Using common_precision = 4.7973 as prec_init !
+
+* Estimating genewise precision.. 
+
+! Using loess fit as a shrinkage factor !
+
+* Fitting the DM model.. 
+
+   Using the one way approach. 
+
+* Fitting the BB model.. 
+
+   Using the one way approach. 
+
+* Fitting the DM model.. 
+
+   Using the one way approach. 
+
+* Calculating likelihood ratio statistics.. 
+
+* Fitting the BB model.. 
+
+   Using the one way approach. 
+
+* Calculating likelihood ratio statistics.. 
+
+Posthoc filtered 24892 features.
+The returned adjusted p-values are based on a stage-wise testing approach and are only valid for the provided target OFDR level of 5%. If a different target OFDR level is of interest,the entire adjustment should be re-run. 
+
+Found 1682 significant genes with 1171 significant transcripts (OFDR: 0.05)
+Using tx2gene columns:
+	transcript_id ---> 'feature_id'
+	gene_id ---> 'gene_id'
+
+Comparing in 'group': 'Ventricle' vs 'Stomach'
+Excluding 26 cells/samples for this comparison!
+
+Proceed with cells/samples: 
+Ventricle   Stomach 
+        4         2 
+
+Filtering...
+
+Retain 53992 of 79473 features.
+Removed 25481 features.
+
+Performing statistical tests...
+
+* Calculating mean gene expression.. 
+
+* Estimating common precision.. 
+
+! Using common_precision = 4.7973 as prec_init !
+
+* Estimating genewise precision.. 
+
+! Using loess fit as a shrinkage factor !
+
+* Fitting the DM model.. 
+
+   Using the one way approach. 
+
+* Fitting the BB model.. 
+
+   Using the one way approach. 
+
+* Fitting the DM model.. 
+
+   Using the one way approach. 
+
+* Calculating likelihood ratio statistics.. 
+
+* Fitting the BB model.. 
+
+   Using the one way approach. 
+
+* Calculating likelihood ratio statistics.. 
+
+Posthoc filtered 25385 features.
+The returned adjusted p-values are based on a stage-wise testing approach and are only valid for the provided target OFDR level of 5%. If a different target OFDR level is of interest,the entire adjustment should be re-run. 
+
+Found 660 significant genes with 367 significant transcripts (OFDR: 0.05)
+Using tx2gene columns:
+	transcript_id ---> 'feature_id'
+	gene_id ---> 'gene_id'
+
+Comparing in 'group': 'Ventricle' vs 'Small Intestine'
+Excluding 26 cells/samples for this comparison!
+
+Proceed with cells/samples: 
+      Ventricle Small Intestine 
+              4               2 
+
+Filtering...
+
+Retain 55388 of 79915 features.
+Removed 24527 features.
+
+Performing statistical tests...
+
+* Calculating mean gene expression.. 
+
+* Estimating common precision.. 
+
+! Using common_precision = 42.5442 as prec_init !
+
+* Estimating genewise precision.. 
+
+! Using loess fit as a shrinkage factor !
+
+* Fitting the DM model.. 
+
+   Using the one way approach. 
+
+* Fitting the BB model.. 
+
+   Using the one way approach. 
+
+* Fitting the DM model.. 
+
+   Using the one way approach. 
+
+* Calculating likelihood ratio statistics.. 
+
+* Fitting the BB model.. 
+
+   Using the one way approach. 
+
+* Calculating likelihood ratio statistics.. 
+
+Posthoc filtered 25194 features.
+The returned adjusted p-values are based on a stage-wise testing approach and are only valid for the provided target OFDR level of 5%. If a different target OFDR level is of interest,the entire adjustment should be re-run. 
+
+Found 1027 significant genes with 555 significant transcripts (OFDR: 0.05)
+Using tx2gene columns:
+	transcript_id ---> 'feature_id'
+	gene_id ---> 'gene_id'
+
+Comparing in 'group': 'Atrium' vs 'Gall Bladder'
+Excluding 26 cells/samples for this comparison!
+
+Proceed with cells/samples: 
+      Atrium Gall Bladder 
+           4            2 
+
+Filtering...
+
+Retain 56166 of 80987 features.
+Removed 24821 features.
+
+Performing statistical tests...
+
+* Calculating mean gene expression.. 
+
+* Estimating common precision.. 
+
+! Using common_precision = 4.7973 as prec_init !
+
+* Estimating genewise precision.. 
+
+! Using loess fit as a shrinkage factor !
+
+* Fitting the DM model.. 
+
+   Using the one way approach. 
+
+* Fitting the BB model.. 
+
+   Using the one way approach. 
+
+* Fitting the DM model.. 
+
+   Using the one way approach. 
+
+* Calculating likelihood ratio statistics.. 
+
+* Fitting the BB model.. 
+
+   Using the one way approach. 
+
+* Calculating likelihood ratio statistics.. 
+
+Posthoc filtered 25817 features.
+The returned adjusted p-values are based on a stage-wise testing approach and are only valid for the provided target OFDR level of 5%. If a different target OFDR level is of interest,the entire adjustment should be re-run. 
+
+Found 1785 significant genes with 1182 significant transcripts (OFDR: 0.05)
+Using tx2gene columns:
+	transcript_id ---> 'feature_id'
+	gene_id ---> 'gene_id'
+
+Comparing in 'group': 'Atrium' vs 'Stomach'
+Excluding 26 cells/samples for this comparison!
+
+Proceed with cells/samples: 
+ Atrium Stomach 
+      4       2 
+
+Filtering...
+
+Retain 54443 of 80110 features.
+Removed 25667 features.
+
+Performing statistical tests...
+
+* Calculating mean gene expression.. 
+
+* Estimating common precision.. 
+
+! Using common_precision = 4.7973 as prec_init !
+
+* Estimating genewise precision.. 
+
+! Using loess fit as a shrinkage factor !
+
+* Fitting the DM model.. 
+
+   Using the one way approach. 
+
+* Fitting the BB model.. 
+
+   Using the one way approach. 
+
+* Fitting the DM model.. 
+
+   Using the one way approach. 
+
+* Calculating likelihood ratio statistics.. 
+
+* Fitting the BB model.. 
+
+   Using the one way approach. 
+
+* Calculating likelihood ratio statistics.. 
+
+Posthoc filtered 26348 features.
+The returned adjusted p-values are based on a stage-wise testing approach and are only valid for the provided target OFDR level of 5%. If a different target OFDR level is of interest,the entire adjustment should be re-run. 
+
+Found 617 significant genes with 337 significant transcripts (OFDR: 0.05)
+Using tx2gene columns:
+	transcript_id ---> 'feature_id'
+	gene_id ---> 'gene_id'
+
+Comparing in 'group': 'Atrium' vs 'Small Intestine'
+Excluding 26 cells/samples for this comparison!
+
+Proceed with cells/samples: 
+         Atrium Small Intestine 
+              4               2 
+
+Filtering...
+
+Retain 55845 of 80588 features.
+Removed 24743 features.
+
+Performing statistical tests...
+
+* Calculating mean gene expression.. 
+
+* Estimating common precision.. 
+
+! Using common_precision = 4.7973 as prec_init !
+
+* Estimating genewise precision.. 
+
+! Using loess fit as a shrinkage factor !
+
+* Fitting the DM model.. 
+
+   Using the one way approach. 
+
+* Fitting the BB model.. 
+
+   Using the one way approach. 
+
+* Fitting the DM model.. 
+
+   Using the one way approach. 
+
+* Calculating likelihood ratio statistics.. 
+
+* Fitting the BB model.. 
+
+   Using the one way approach. 
+
+* Calculating likelihood ratio statistics.. 
+
+Posthoc filtered 26118 features.
+The returned adjusted p-values are based on a stage-wise testing approach and are only valid for the provided target OFDR level of 5%. If a different target OFDR level is of interest,the entire adjustment should be re-run. 
+
+Found 1021 significant genes with 504 significant transcripts (OFDR: 0.05)
+Using tx2gene columns:
+	transcript_id ---> 'feature_id'
+	gene_id ---> 'gene_id'
+
+Comparing in 'group': 'Gall Bladder' vs 'Stomach'
+Excluding 28 cells/samples for this comparison!
+
+Proceed with cells/samples: 
+Gall Bladder      Stomach 
+           2            2 
+
+Filtering...
+
+Retain 55267 of 79972 features.
+Removed 24705 features.
+
+Performing statistical tests...
+
+* Calculating mean gene expression.. 
+
+* Estimating common precision.. 
+
+! Using common_precision = 4.7973 as prec_init !
+
+* Estimating genewise precision.. 
+
+! Using loess fit as a shrinkage factor !
+
+* Fitting the DM model.. 
+
+   Using the one way approach. 
+
+* Fitting the BB model.. 
+
+   Using the one way approach. 
+
+* Fitting the DM model.. 
+
+   Using the one way approach. 
+
+* Calculating likelihood ratio statistics.. 
+
+* Fitting the BB model.. 
+
+   Using the one way approach. 
+
+* Calculating likelihood ratio statistics.. 
+
+Posthoc filtered 27207 features.
+The returned adjusted p-values are based on a stage-wise testing approach and are only valid for the provided target OFDR level of 5%. If a different target OFDR level is of interest,the entire adjustment should be re-run. 
+
+Found 222 significant genes with 82 significant transcripts (OFDR: 0.05)
+Using tx2gene columns:
+	transcript_id ---> 'feature_id'
+	gene_id ---> 'gene_id'
+
+Comparing in 'group': 'Gall Bladder' vs 'Small Intestine'
+Excluding 28 cells/samples for this comparison!
+
+Proceed with cells/samples: 
+   Gall Bladder Small Intestine 
+              2               2 
+
+Filtering...
+
+Retain 55869 of 80032 features.
+Removed 24163 features.
+
+Performing statistical tests...
+
+* Calculating mean gene expression.. 
+
+* Estimating common precision.. 
+
+! Using common_precision = 4.7973 as prec_init !
+
+* Estimating genewise precision.. 
+
+! Using loess fit as a shrinkage factor !
+
+* Fitting the DM model.. 
+
+   Using the one way approach. 
+
+* Fitting the BB model.. 
+
+   Using the one way approach. 
+
+* Fitting the DM model.. 
+
+   Using the one way approach. 
+
+* Calculating likelihood ratio statistics.. 
+
+* Fitting the BB model.. 
+
+   Using the one way approach. 
+
+* Calculating likelihood ratio statistics.. 
+
+Posthoc filtered 26930 features.
+The returned adjusted p-values are based on a stage-wise testing approach and are only valid for the provided target OFDR level of 5%. If a different target OFDR level is of interest,the entire adjustment should be re-run. 
+
+Found 266 significant genes with 108 significant transcripts (OFDR: 0.05)
+Using tx2gene columns:
+	transcript_id ---> 'feature_id'
+	gene_id ---> 'gene_id'
+
+Comparing in 'group': 'Stomach' vs 'Small Intestine'
+Excluding 28 cells/samples for this comparison!
+
+Proceed with cells/samples: 
+        Stomach Small Intestine 
+              2               2 
+
+Filtering...
+
+Retain 54957 of 79700 features.
+Removed 24743 features.
+
+Performing statistical tests...
+
+* Calculating mean gene expression.. 
+
+* Estimating common precision.. 
+
+! Using common_precision = 4.7973 as prec_init !
+
+* Estimating genewise precision.. 
+
+! Using loess fit as a shrinkage factor !
+
+* Fitting the DM model.. 
+
+   Using the one way approach. 
+
+* Fitting the BB model.. 
+
+   Using the one way approach. 
+
+* Fitting the DM model.. 
+
+   Using the one way approach. 
+
+* Calculating likelihood ratio statistics.. 
+
+* Fitting the BB model.. 
+
+   Using the one way approach. 
+
+* Calculating likelihood ratio statistics.. 
+
+Posthoc filtered 27028 features.
+The returned adjusted p-values are based on a stage-wise testing approach and are only valid for the provided target OFDR level of 5%. If a different target OFDR level is of interest,the entire adjustment should be re-run. 
+
+Found 15 significant genes with 6 significant transcripts (OFDR: 0.05)
