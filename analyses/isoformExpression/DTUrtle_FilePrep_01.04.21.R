@@ -4,6 +4,7 @@
 
 library(DTUrtle)
 library(tidyverse)
+library(tximport)
 
 #the BiocParallel framework is used to parallelize the computations.
 #Using 4 cores:
@@ -15,7 +16,7 @@ biocpar <- BiocParallel::SerialParam()
 # Import and format data --------------------------------------------------
 
 ##### import gtf Annotation to get transcript to gene mapping
-tx2gene <- import_gtf(gtf_file = "data/isoforms/new_merge.combined.renamed_tappAS_annot_from_SQANTI3.gff3",feature_type = 'gene')
+tx2gene <- import_gtf(gtf_file = "data/isoforms/new_merge.combined.renamed_tappAS_annot_from_SQANTI3.gff3.gz",feature_type = 'gene')
 
 tx2gene <- move_columns_to_front(df = tx2gene, 
                                  columns = c("seqnames", "ID"))
@@ -54,10 +55,10 @@ cts_temp2 <- cts_temp %>%
 names(cts_temp2) <- str_to_upper(str_split_fixed(names(cts_temp2),'[_]',2)[,1])
 names(cts_temp2)
 
+# write_csv(cts_temp2,'analyses/isoformExpression/Transcripts_DTUScaledTPMCounts.csv')
 
 cts <- as.matrix(cts_temp2)
 head(cts)
-
 
 
 ##### create a sample data sheet, specifying which sample belongs to which group

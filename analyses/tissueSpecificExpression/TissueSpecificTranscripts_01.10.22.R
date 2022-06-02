@@ -93,6 +93,8 @@ bear.tpm.mat <- tpm.mat
 
 bear.tpm.mat.df <- bear.tpm.mat %>% as.data.frame() %>% rownames_to_column()
 
+# write_csv(bear.tpm.mat.df,'analyses/rnaseq_normalization/bear_TPMnorm_geneLevelCounts.csv')
+
 bear.gene.median_counts <- bear.tpm.mat.df %>% 
   dplyr::select('gene_id'=rowname,everything()) %>% 
   pivot_longer(-1,names_to = 'sample',values_to = 'counts') %>% 
